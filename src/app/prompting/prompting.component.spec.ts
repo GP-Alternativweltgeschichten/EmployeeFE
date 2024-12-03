@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PropmptingComponent } from './propmpting.component';
+import { PromptingComponent } from './prompting.component';
 
 describe('PropmptingComponent', () => {
-  let component: PropmptingComponent;
-  let fixture: ComponentFixture<PropmptingComponent>;
+  let component: PromptingComponent;
+  let fixture: ComponentFixture<PromptingComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PropmptingComponent]
+      declarations: [PromptingComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PropmptingComponent);
+    fixture = TestBed.createComponent(PromptingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

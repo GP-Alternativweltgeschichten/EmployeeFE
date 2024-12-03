@@ -5,22 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { PropmptingComponent } from './propmpting/propmpting.component';
+import { PromptingComponent } from './prompting/prompting.component';
 import { OldMapsComponent } from './old-maps/old-maps.component';
 import { ScenariosComponent } from './scenarios/scenarios.component';
+import {MenubarModule} from 'primeng/menubar';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
     NavBarComponent,
-    PropmptingComponent,
+    PromptingComponent,
     OldMapsComponent,
     ScenariosComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
