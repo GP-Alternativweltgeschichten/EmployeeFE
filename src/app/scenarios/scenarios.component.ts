@@ -12,17 +12,17 @@ export class ScenariosComponent {
     {
       name: 'Scenario 1',
       description: 'This is the first scenario.',
-      pic: 'http://localhost:4200/assets/img/img.png'
+      pic: 'img/img.png'
     },
     {
       name: 'Scenario 2',
       description: 'This is the second scenario.',
-      pic: 'http://localhost:4200/assets/img/img.png'
+      pic: 'img/img.png'
     },
     {
       name: 'Scenario 3',
       description: 'This is the third scenario.',
-      pic: 'http://localhost:4200/assets/img/img.png'
+      pic: 'img/img.png'
     }
     ]
 }

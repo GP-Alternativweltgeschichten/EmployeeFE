@@ -9,10 +9,10 @@
     <div *ngFor="let scenario of scenarios">
       <p-card [header]="scenario.name" [style]="{height: '400px', width: '500px'}">
         <div class="grid" style="padding-bottom: 5px">
-          <div class="col-fixed" style="width: 150px">
+          <div class="col-12">
             <p-image src="{{scenario.pic}}" alt="Bild {{scenario.name}}"></p-image>
           </div>
-          <div class="col">
+          <div class="col-12">
             <div>{{scenario.description}}</div>
           </div>
         </div>
