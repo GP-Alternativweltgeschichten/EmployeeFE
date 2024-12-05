@@ -11,6 +11,8 @@ import { ScenariosComponent } from './scenarios/scenarios.component';
 import {MenubarModule} from 'primeng/menubar';
 import { FooterComponent } from './footer/footer.component';
 import {Button} from 'primeng/button';
+import {CardModule} from 'primeng/card';
+import {ImageModule} from 'primeng/image';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import {Button} from 'primeng/button';
     BrowserModule,
     AppRoutingModule,
     MenubarModule,
-    Button
+    Button,
+    CardModule,
+    ImageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,27 @@
-<p>scenarios works!</p>
+<div class="grid">
+  <div class="col-12">
+    <h1 style="text-align: center">Szenarien</h1>
+  </div>
+  <div class="col-12">
+    <p style="text-align: center">Hier finden Sie eine Übersicht der Szenarien.</p>
+  </div>
+  <div class="col-12 overflow-x-scroll" style="max-height: 450px; display: flex">
+    <div *ngFor="let scenario of scenarios">
+      <p-card [header]="scenario.name" [style]="{height: '400px', width: '500px'}">
+        <div class="grid" style="padding-bottom: 5px">
+          <div class="col-fixed" style="width: 150px">
+            <p-image src="{{scenario.pic}}" alt="Bild {{scenario.name}}"></p-image>
+          </div>
+          <div class="col">
+            <div>{{scenario.description}}</div>
+          </div>
+        </div>
+        <ng-template pTemplate="footer">
+          <div>
+            <p-button>{{scenario.name}} anzeigen</p-button>
+          </div>
+        </ng-template>
+      </p-card>
+    </div>
+  </div>
+</div>
