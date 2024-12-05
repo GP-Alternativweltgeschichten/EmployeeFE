@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PromptingComponent } from './prompting.component';
 
-describe('PropmptingComponent', () => {
+describe('PromptingComponent', () => {
   let component: PromptingComponent;
   let fixture: ComponentFixture<PromptingComponent>;
 
