@@ -13,9 +13,9 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {
     this.navItems = [
-      {label: 'Prompting', icon: 'pi pi-map-marker' ,routerLink: ['/Prompting']},
-      {label: 'Scenarios', icon: 'pi pi-building-columns' , routerLink: ['/Scenarios']},
-      {label: 'Old Maps', icon: 'pi pi-map' , routerLink: ['/Old-Maps']}
+      {label: 'Prompting', icon: 'pi pi-map-marker' ,routerLink: ['/prompting']},
+      {label: 'Szenarios', icon: 'pi pi-building-columns' , routerLink: ['/scenarios']},
+      {label: 'Alte Karten', icon: 'pi pi-map' , routerLink: ['/old-maps']}
     ]
   }
 }
