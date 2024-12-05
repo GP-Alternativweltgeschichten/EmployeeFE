@@ -9,6 +9,8 @@ import { PromptingComponent } from './prompting/prompting.component';
 import { OldMapsComponent } from './old-maps/old-maps.component';
 import { ScenariosComponent } from './scenarios/scenarios.component';
 import {MenubarModule} from 'primeng/menubar';
+import { FooterComponent } from './footer/footer.component';
+import {Button} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import {MenubarModule} from 'primeng/menubar';
     NavBarComponent,
     PromptingComponent,
     OldMapsComponent,
-    ScenariosComponent
+    ScenariosComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MenubarModule
+    MenubarModule,
+    Button
   ],
   providers: [],
   bootstrap: [AppComponent]
