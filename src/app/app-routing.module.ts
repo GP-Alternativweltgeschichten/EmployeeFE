@@ -5,7 +5,7 @@ import {ScenariosComponent} from './scenarios/scenarios.component';
 import {OldMapsComponent} from './old-maps/old-maps.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/Prompting', pathMatch: 'full'},
+  {path: '', redirectTo: '/prompting', pathMatch: 'full'},
   {path: 'prompting', component: PromptingComponent},
   {path: 'scenarios', component: ScenariosComponent},
   {path: 'old-maps', component: OldMapsComponent}
