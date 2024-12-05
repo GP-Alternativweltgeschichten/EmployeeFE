@@ -1,1 +1,27 @@
-<p>old-maps works!</p>
+<div class="grid">
+  <div class="col-12">
+    <h1 style="text-align: center">Szenarien</h1>
+  </div>
+  <div class="col-12">
+    <p style="text-align: center">Hier finden Sie eine Übersicht der Szenarien.</p>
+  </div>
+  <div class="col-12 overflow-x-scroll" style="max-height: 450px; display: flex">
+    <div *ngFor="let map of oldMaps">
+      <p-card [header]="map.name" [style]="{height: '400px', width: '500px'}">
+        <div class="grid" style="padding-bottom: 5px">
+          <div class="col-12">
+            <p-image src="{{map.pic}}" alt="Bild {{map.name}}"></p-image>
+          </div>
+          <div class="col-12">
+            <div>{{map.description}}</div>
+          </div>
+        </div>
+        <ng-template pTemplate="footer">
+          <div>
+            <p-button>{{map.name}} anzeigen</p-button>
+          </div>
+        </ng-template>
+      </p-card>
+    </div>
+  </div>
+</div>

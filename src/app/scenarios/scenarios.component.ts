@@ -12,17 +12,27 @@ export class ScenariosComponent {
     {
       name: 'Scenario 1',
       description: 'This is the first scenario.',
-      pic: 'img/img.png'
+      pic: 'img/map.png'
     },
     {
       name: 'Scenario 2',
       description: 'This is the second scenario.',
-      pic: 'img/img.png'
+      pic: 'img/map.png'
     },
     {
       name: 'Scenario 3',
       description: 'This is the third scenario.',
-      pic: 'img/img.png'
+      pic: 'img/map.png'
+    },
+    {
+      name: 'Scenario 4',
+      description: 'This is the fourth scenario.',
+      pic: 'img/map.png'
+    },
+    {
+      name: 'Scenario 5',
+      description: 'This is the fifth scenario.',
+      pic: 'img/map.png'
     }
     ]
 }
