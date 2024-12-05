@@ -6,9 +6,9 @@ import {OldMapsComponent} from './old-maps/old-maps.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/Prompting', pathMatch: 'full'},
-  {path: 'Prompting', component: PromptingComponent},
-  {path: 'Scenarios', component: ScenariosComponent},
-  {path: 'Old-Maps', component: OldMapsComponent}
+  {path: 'prompting', component: PromptingComponent},
+  {path: 'scenarios', component: ScenariosComponent},
+  {path: 'old-maps', component: OldMapsComponent}
 ];
 
 @NgModule({
