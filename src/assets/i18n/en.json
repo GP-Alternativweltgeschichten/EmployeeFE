@@ -1,0 +1,15 @@
+{
+  "CityMuseum": "City Museum Olpe",
+  "Prompting": "Prompting",
+  "Szenarien": "Scenarios",
+  "Alte Karten": "Old Maps",
+  "Szenario": "Scenario",
+  "Karte": "Map",
+  "Picture": "Picture",
+  "ScenarioWelcome": "Here you can find an overview of the scenarios.",
+  "MapsWelcome": "Here you can find an overview of the old maps.",
+  "ScenarioText": "This is a scenario.",
+  "MapsText": "This is a map.",
+  "ScenarioButton": "Show Scenario",
+  "MapButton": "Show Map"
+}

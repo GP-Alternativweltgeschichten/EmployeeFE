@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-propmpting',
+  selector: 'app-prompting',
   standalone: false,
 
   templateUrl: './prompting.component.html',

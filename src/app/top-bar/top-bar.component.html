@@ -1,3 +1,11 @@
-<div>
-  <h1>{{ title }}</h1>
+<div class="top-bar">
+  <h1>{{ 'CityMuseum' | translate }}</h1>
+  <div class="language-switcher">
+    <button (click)="switchLanguage('en')">
+      <img src="assets/icons/uk-flag.png" alt="English" width="30">
+    </button>
+    <button (click)="switchLanguage('de')">
+      <img src="assets/icons/german-flag.png" alt="Deutsch" width="30">
+    </button>
+  </div>
 </div>

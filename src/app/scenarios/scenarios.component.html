@@ -1,16 +1,16 @@
 <div class="grid">
   <div class="col-12">
-    <h1 style="text-align: center">Szenarien</h1>
+    <h1 style="text-align: center">{{ 'Szenarien' | translate }}</h1>
   </div>
   <div class="col-12">
-    <p style="text-align: center">Hier finden Sie eine Übersicht der Szenarien.</p>
+    <p style="text-align: center">{{ 'ScenarioWelcome' | translate }}</p>
   </div>
   <div class="col-12 overflow-x-scroll" style="max-height: 450px; display: flex">
     <div *ngFor="let scenario of scenarios">
       <p-card [header]="scenario.name" [style]="{height: '400px', width: '500px'}">
         <div class="grid" style="padding-bottom: 5px">
           <div class="col-12">
-            <p-image src="{{scenario.pic}}" alt="Bild {{scenario.name}}"></p-image>
+            <p-image src="{{scenario.pic}}" alt="{{ 'Picture' | translate }} {{scenario.name}}"></p-image>
           </div>
           <div class="col-12">
             <div>{{scenario.description}}</div>
@@ -18,7 +18,7 @@
         </div>
         <ng-template pTemplate="footer">
           <div>
-            <p-button>{{scenario.name}} anzeigen</p-button>
+            <p-button>{{ 'ScenarioButton' | translate }}</p-button>
           </div>
         </ng-template>
       </p-card>

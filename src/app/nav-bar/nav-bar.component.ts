@@ -1,21 +1,31 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItem} from 'primeng/api';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: false,
-
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent implements OnInit {
   navItems: MenuItem[] | undefined
 
+  constructor(private translate: TranslateService) {}
+
   ngOnInit(): void {
+    this.setNavItems();
+
+    this.translate.onLangChange.subscribe(() => {
+      this.setNavItems();
+    });
+  }
+
+  private setNavItems(): void {
     this.navItems = [
-      {label: 'Prompting', icon: 'pi pi-map-marker' ,routerLink: ['/prompting']},
-      {label: 'Szenarios', icon: 'pi pi-building-columns' , routerLink: ['/scenarios']},
-      {label: 'Alte Karten', icon: 'pi pi-map' , routerLink: ['/old-maps']}
-    ]
+      { label: this.translate.instant('Prompting'), icon: 'pi pi-map-marker', routerLink: ['/prompting'] },
+      { label: this.translate.instant('Szenarien'), icon: 'pi pi-building-columns', routerLink: ['/scenarios'] },
+      { label: this.translate.instant('Alte Karten'), icon: 'pi pi-map', routerLink: ['/old-maps'] }
+    ];
   }
 }

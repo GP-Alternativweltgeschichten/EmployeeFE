@@ -14,6 +14,16 @@ import {Button} from 'primeng/button';
 import {CardModule} from 'primeng/card';
 import {ImageModule} from 'primeng/image';
 
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+// Factory function for ngx-translate
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +40,15 @@ import {ImageModule} from 'primeng/image';
     MenubarModule,
     Button,
     CardModule,
-    ImageModule
+    ImageModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
