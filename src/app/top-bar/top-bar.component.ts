@@ -27,8 +27,8 @@ export class TopBarComponent implements OnInit {
 
   private setModeOptions(): void {
     this.modeOptions = [
-      { label: this.translate.instant('BesucherSelection'), value: false },
-      { label: this.translate.instant('AdminSelection'), value: true }];
+      { label: this.translate.instant('Besucher'), value: false },
+      { label: this.translate.instant('Admin'), value: true }];
   }
 
   switchLanguage(language: string): void {

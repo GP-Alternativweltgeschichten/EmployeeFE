@@ -12,6 +12,6 @@
   "MapsText": "This is a map.",
   "ScenarioButton": "Show Scenario",
   "MapButton": "Show Map",
-  "BesucherSelection": "Visitor",
-  "AdminSelection": "Admin"
+  "Besucher": "Visitor",
+  "Admin": "Admin"
 }
