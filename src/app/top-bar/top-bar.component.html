@@ -1,5 +1,11 @@
 <div class="top-bar">
   <h1>{{ 'CityMuseum' | translate }}</h1>
+  <div>
+    <p-selectButton
+      [(ngModel)]="modeSwitch" [options]="modeOptions" styleClass="w-24"
+      (onChange)="switchMode()"
+    ></p-selectButton>
+  </div>
   <div class="language-switcher">
     <button (click)="switchLanguage('en')">
       <img src="assets/icons/uk-flag.png" alt="English" width="30">

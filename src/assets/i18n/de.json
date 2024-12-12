@@ -11,5 +11,7 @@
   "ScenarioText": "Das ist ein Szenario.",
   "MapsText": "Das ist eine Karte.",
   "ScenarioButton": "Szenario anzeigen",
-  "MapButton": "Karte anzeigen"
+  "MapButton": "Karte anzeigen",
+  "BesucherSelection": "Besucher",
+  "AdminSelection": "Admin"
 }

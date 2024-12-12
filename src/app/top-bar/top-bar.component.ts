@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -7,15 +7,35 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './top-bar.component.html',
   styleUrl: './top-bar.component.css'
 })
-export class TopBarComponent {
-  //title: string = 'Stadtmuseum Olpe';
+export class TopBarComponent implements OnInit {
+  @Output() modeSwitched = new EventEmitter<boolean>();
+  modeSwitch: boolean = false;
+  modeOptions: any[] | undefined;
 
   constructor(private translate: TranslateService) {
     // Default language
     this.translate.setDefaultLang('de');
   }
 
+  ngOnInit(): void {
+    this.setModeOptions();
+
+    this.translate.onLangChange.subscribe(() => {
+      this.setModeOptions();
+    });
+  }
+
+  private setModeOptions(): void {
+    this.modeOptions = [
+      { label: this.translate.instant('BesucherSelection'), value: false },
+      { label: this.translate.instant('AdminSelection'), value: true }];
+  }
+
   switchLanguage(language: string): void {
     this.translate.use(language);
+  }
+
+  switchMode(): void {
+    this.modeSwitched.emit(this.modeSwitch);
   }
 }

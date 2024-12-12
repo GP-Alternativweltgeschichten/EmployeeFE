@@ -3,12 +3,12 @@ import {MenuItem} from 'primeng/api';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-nav-bar',
+  selector: 'app-nav-bar-visitor',
   standalone: false,
-  templateUrl: './nav-bar.component.html',
-  styleUrl: './nav-bar.component.css'
+  templateUrl: './nav-bar-visitor.component.html',
+  styleUrl: './nav-bar-visitor.component.css'
 })
-export class NavBarComponent implements OnInit {
+export class NavBarVisitorComponent implements OnInit {
   navItems: MenuItem[] | undefined
 
   constructor(private translate: TranslateService) {}

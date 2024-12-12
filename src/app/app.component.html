@@ -1,7 +1,19 @@
-<app-top-bar></app-top-bar>
+<app-top-bar
+  (modeSwitched)="switchMode($event)"
+></app-top-bar>
 
-<app-nav-bar></app-nav-bar>
+<ng-container *ngIf="!home">
+  <ng-container *ngIf="modeSwitch; else other">
+    <app-nav-bar-admin></app-nav-bar-admin>
+  </ng-container>
+
+  <ng-template #other>
+    <app-nav-bar-visitor></app-nav-bar-visitor>
+  </ng-template>
+</ng-container>
 
 <router-outlet></router-outlet>
 
-<app-footer></app-footer>
+<ng-container *ngIf="!home && !modeSwitch">
+  <app-footer></app-footer>
+</ng-container>
