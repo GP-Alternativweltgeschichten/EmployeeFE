@@ -6,12 +6,15 @@
   "Szenario": "Scenario",
   "Karte": "Map",
   "Picture": "Picture",
+  "ScenarioEnter": "Enter scenario",
   "ScenarioWelcome": "Here you can find an overview of the scenarios.",
   "MapsWelcome": "Here you can find an overview of the old maps.",
   "ScenarioText": "This is a scenario.",
   "MapsText": "This is a map.",
   "ScenarioButton": "Show Scenario",
   "MapButton": "Show Map",
+  "WhatIf": "What would happen if ...",
+  "Generate": "Generate",
   "Besucher": "Visitor",
   "Admin": "Admin"
 }

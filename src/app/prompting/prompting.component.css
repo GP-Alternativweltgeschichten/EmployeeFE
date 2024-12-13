@@ -1,0 +1,79 @@
+/* Main container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+/* Map container */
+.map-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.map-image {
+  width: 600px;
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Input container */
+.input-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Helper text */
+.helper-text {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Input field and button wrapper */
+.input-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  align-items: center;
+}
+
+.scenario-input {
+  flex: 1;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px; /* Rounded corners for left side */
+  outline: none;
+}
+
+.scenario-input::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+/* Generate button */
+.generate-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #007bff;
+  border-left: none; /* No border between input and button */
+  border-radius: 0 5px 5px 0; /* Rounded corners for right side */
+  cursor: pointer;
+}
+
+.generate-button:hover {
+  background-color: #0056b3;
+}
+

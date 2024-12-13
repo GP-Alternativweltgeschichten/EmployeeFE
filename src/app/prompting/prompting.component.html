@@ -1,3 +1,25 @@
-<div class="justify-content-center" style="height: 550px; display: flex">
-  <p-image src="img/prompt.png" alt="Bild" width="900"></p-image>
+<div class="container">
+  <!-- Map image container -->
+  <div class="map-container">
+    <img src="assets/img/olpe.png" alt="Map" class="map-image">
+  </div>
+
+  <!-- Input field with helper text and button -->
+  <div class="input-container">
+    <div class="helper-text">{{ 'ScenarioEnter' | translate }}</div>
+    <div class="input-wrapper">
+      <input
+        type="text"
+        class="scenario-input"
+        placeholder="{{ 'WhatIf' | translate }}"
+        #scenarioInput
+        (input)="onInputChange(scenarioInput.value)"
+        (keydown.enter)="updatePrompt(scenarioInput)"> <!-- Update on Enter -->
+
+      <button
+        class="generate-button"
+        [disabled]="!inputText.trim()"
+        (click)="updatePrompt(scenarioInput)">{{ 'Generate' | translate }}</button> <!-- Update on Button Click -->
+    </div>
+  </div>
 </div>

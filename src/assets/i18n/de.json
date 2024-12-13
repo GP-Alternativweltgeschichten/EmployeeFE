@@ -6,12 +6,15 @@
   "Szenario": "Szenario",
   "Karte": "Karte",
   "Picture": "Bild",
+  "ScenarioEnter": "Szenario eingeben",
   "ScenarioWelcome": "Hier finden Sie eine Übersicht der Szenarien.",
   "MapsWelcome": "Hier finden Sie eine Übersicht der alten Karten.",
   "ScenarioText": "Das ist ein Szenario.",
   "MapsText": "Das ist eine Karte.",
   "ScenarioButton": "Szenario anzeigen",
   "MapButton": "Karte anzeigen",
+  "WhatIf": "Was wäre, wenn ...",
+  "Generate": "Generieren",
   "Besucher": "Besucher",
   "Admin": "Admin"
 }
