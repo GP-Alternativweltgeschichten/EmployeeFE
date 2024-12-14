@@ -12,8 +12,8 @@
   </ng-template>
 </ng-container>
 
-<router-outlet></router-outlet>
-
 <ng-container *ngIf="!home && !modeSwitch">
-  <app-footer></app-footer>
+  <app-reset></app-reset>
 </ng-container>
+
+<router-outlet></router-outlet>

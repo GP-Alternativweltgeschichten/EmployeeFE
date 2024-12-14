@@ -9,7 +9,7 @@ import { PromptingComponent } from './visitor/prompting/prompting.component';
 import { OldMapsComponent } from './visitor/old-maps/old-maps.component';
 import { ScenariosComponent } from './visitor/scenarios/scenarios.component';
 import {MenubarModule} from 'primeng/menubar';
-import { FooterComponent } from './footer/footer.component';
+import { ResetComponent } from './visitor/reset/reset.component';
 import {Button} from 'primeng/button';
 import {CardModule} from 'primeng/card';
 import {ImageModule} from 'primeng/image';
@@ -39,7 +39,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     PromptingComponent,
     OldMapsComponent,
     ScenariosComponent,
-    FooterComponent,
+    ResetComponent,
     HomeComponent,
     NavBarAdminComponent,
     AdminScenariosComponent,
