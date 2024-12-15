@@ -16,5 +16,39 @@
   "WhatIf": "What would happen if ...",
   "Generate": "Generate",
   "Besucher": "Visitor",
-  "Admin": "Admin"
+  "Admin": "Admin",
+  "messages": {
+    "success": "Saved",
+    "failure": "Errror while saving",
+    "error": "Error Message",
+    "fileSize": "File too large",
+    "fileAdd": "File added"
+  },
+  "dialog": {
+    "name": "Name",
+    "description": "Description",
+    "image": "Image",
+    "imageAdd": "Add Image",
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "table": {
+    "zeige": "Show",
+    "von": "from",
+    "bis": "to",
+    "einträge": "Entries",
+    "reset": "Reset Table",
+    "am": "Added on",
+    "keinEintrag": "No Entry"
+  },
+  "scenarios": {
+    "add": "Add Scenario",
+    "edit": "Edit Scenario",
+    "delete": "Delete Scenario"
+  },
+  "oldMaps": {
+    "add": "Add Old Map",
+    "edit": "Edit Old Map",
+    "delete": "Delete Old Map"
+  }
 }

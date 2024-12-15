@@ -24,6 +24,13 @@ import { NavBarAdminComponent } from './admin/nav-bar-admin/nav-bar-admin.compon
 import {SelectButtonModule} from 'primeng/selectbutton';
 import { AdminScenariosComponent } from './admin/admin-scenarios/admin-scenarios.component';
 import { AdminOldMapsComponent } from './admin/admin-old-maps/admin-old-maps.component';
+import { OldMapDialogComponent } from './admin/old-map-dialog/old-map-dialog.component';
+import { ScenarioDialogComponent } from './admin/scenario-dialog/scenario-dialog.component';
+import {DialogModule} from 'primeng/dialog';
+import {FileUploadModule} from 'primeng/fileupload';
+import {TableModule} from 'primeng/table';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import {CalendarModule} from 'primeng/calendar';
 
 // Factory function for ngx-translate
 export function HttpLoaderFactory(http: HttpClient) {
@@ -43,7 +50,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     NavBarAdminComponent,
     AdminScenariosComponent,
-    AdminOldMapsComponent
+    AdminOldMapsComponent,
+    OldMapDialogComponent,
+    ScenarioDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +71,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     ToggleButtonModule,
     FormsModule,
-    SelectButtonModule
+    SelectButtonModule,
+    DialogModule,
+    FileUploadModule,
+    TableModule,
+    ProgressSpinnerModule,
+    CalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

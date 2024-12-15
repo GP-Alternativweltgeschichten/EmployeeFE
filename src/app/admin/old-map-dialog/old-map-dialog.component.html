@@ -1,0 +1,83 @@
+<p-dialog
+  [(visible)]="displayDialog"
+  [modal]="true"
+  [contentStyle]="{ overflow: 'visible' }"
+  [style]="{width: '1000px' }"
+  [blockScroll]="true"
+  (onHide)="closeDialog()"
+>
+  <p-header>
+    {{ "Szenario" | translate }}
+  </p-header>
+  <form #oldMapForm="ngForm">
+    <div class="grid">
+      <div class="col-2">
+        {{ "dialog.name" | translate }} *:
+      </div>
+      <div class="col-10">
+        <span class="md-inputfield">
+          <input
+            name="attachmentName"
+            required
+            [(ngModel)]="selectedOldMap.name"
+            class="p-inputtext ui-corner-all ui-state-default ui-widget"
+            [style]="{ width: '100%' }"
+          />
+        </span>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col-2">
+        {{ "dialog.beschreibung" | translate }} *:
+      </div>
+      <div class="col-10">
+         <span class="md-inputfield">
+           <input
+             name="attachmentDescription"
+             required
+             [(ngModel)]="selectedOldMap.description"
+             class="p-inputtext ui-corner-all ui-state-default ui-widget"
+             [style]="{ width: '100%' }"
+           />
+         </span>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col-2">
+        {{ "dialog.image" | translate }}:
+      </div>
+      <div class="col-10">
+        <p-fileUpload
+          #fileUpload
+          mode="advanced"
+          [chooseLabel]="this.translate.instant('dialog.imageAdd')"
+          chooseIcon="pi pi-upload"
+          name="attachmentFileUpload"
+          accept="image/*"
+          auto="true"
+          customUpload="true"
+          (uploadHandler)="customImageUploader($event)"
+        />
+      </div>
+    </div>
+    <div style="padding-top: 1rem" class="ui-dialog-buttonpane ui-helper-clearfix">
+      <button
+        class="discardButton"
+        type="button"
+        pButton
+        icon="fa fa-close"
+        (click)="closeDialog()"
+        [label]="translate.instant('dialog.cancel')"
+      ></button>
+      <button
+        class="saveButton"
+        type="button"
+        pButton
+        icon="fa fa-check"
+        (click)="oldMapForm.valid ? saveOldMap() : null"
+        [disabled]="!oldMapForm.valid"
+        [label]="translate.instant('dialog.save')"
+      ></button>
+    </div>
+  </form>
+</p-dialog>

@@ -1,1 +1,142 @@
-<p>admin-scenarios works!</p>
+<p-table
+  responsiveLayout="stack"
+  #scenariosTable
+  *ngIf="!loading else elseBlock"
+  [value]="this.scenariosList"
+  [paginator]="true"
+  [rows]="tableRows"
+  [columns]="[{ field: 'name', header: 'Name' }, { field: 'description', header: 'Description' }, { field: 'created_at', header: 'Created At' }]"
+  [pageLinks]="5"
+  [rowsPerPageOptions]="tablePaginationSteps"
+  [sortField]="'name'"
+  [sortOrder]="-1"
+  [showCurrentPageReport]="true"
+  currentPageReportTemplate="{{translate.instant('table.zeige')}}
+                              {first}
+                              {{translate.instant('table.bis')}}
+                              {last}
+                              {{translate.instant('table.von')}}
+                              {totalRecords}
+                              {{translate.instant('table.eintraege')}}"
+
+>
+  <ng-template pTemplate="caption">
+    <div>
+      <button
+        type="button"
+        pButton
+        icon="awesome fa-eraser"
+        [pTooltip]="translate.instant('table.reset')"
+        tooltipPosition="top"
+        showDelay="200"
+        hideDelay="200"
+        (click)="clearTable(scenariosTable)"
+        style="float: right; margin-right: 5px"
+      ></button>
+      <button
+        type="button"
+        pButton
+        icon="material-icons ui-icon-plus"
+        [pTooltip]="translate.instant('scenarios.add')"
+        tooltipPosition="top"
+        showDelay="200"
+        hideDelay="200"
+        style="float:right; margin-right: 5px"
+        (click)="addScenarioDialog()"
+      ></button>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th id="actionButtonsHeader" class="buttonCol row-no-border-bot"></th>
+      <th id="nameHeader" class="medium-text-column-header-nowidth row-no-border-bot"
+          [pSortableColumn]="'name'">
+        {{ "dialog.name" | translate }}
+        <p-sortIcon [field]="'name'"></p-sortIcon>
+      </th>
+      <th id="descriptionHeader" class="medium-text-column-header-nowidth row-no-border-bot"
+          [pSortableColumn]="'description'">
+        {{ "dialog.beschreibung" | translate }}
+        <p-sortIcon [field]="'description'"></p-sortIcon>
+      </th>
+      <th id="createdAtHeader" class="medium-text-column-header-nowidth row-no-border-bot"
+          [pSortableColumn]="'created_at'" [style.width]="'100px'">
+        {{ "table.am" | translate }}
+        <p-sortIcon [field]="'created_at'"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-scenario>
+    <tr
+      [pSelectableRowDblClick]="scenario"
+      [pSelectableRow]="scenario"
+      (dblclick)="editScenarioDialog(scenario)"
+    >
+      <td class="buttonCol">
+        <span class="button-span">
+          <button
+            type="button"
+            pButton
+            class="button-columns-button-icon"
+            icon="material-icons ui-icon-delete"
+            style="font-size: 0.65em"
+            [pTooltip]="translate.instant('scenarios.delete')"
+            tooltipPosition="top"
+            showDelay="200"
+            hideDelay="200"
+            (click)="deleteScenarioById(scenario)"
+          ></button>
+          <button
+            type="button"
+            pButton
+            class="button-columns-button-icon"
+            icon="material-icons ui-icon-edit"
+            style="font-size: 0.65em"
+            [pTooltip]="translate.instant('scenarios.edit')"
+            tooltipPosition="top"
+            showDelay="200"
+            hideDelay="200"
+            (click)="editScenarioDialog(scenario)"
+          ></button>
+        </span>
+      </td>
+      <td class="medium-text-column-body-nowidth">
+        <span>{{
+            scenario.name
+          }}</span>
+      </td>
+      <td class="medium-text-column-body-nowidth">
+        <span>{{
+            scenario.description
+          }}</span>
+      </td>
+      <td class="date-column">
+        <span>{{ scenario.created_at }}</span>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage" let-columns>
+    <tr>
+      <td [colSpan]="4">
+        {{ "table.keinEintrag" | translate }}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<ng-template #elseBlock>
+  <div class="flex justify-content-center align-items-center" style="height: 100%">
+    <p-progressSpinner
+      styleClass="spinner"
+      strokeWidth="8"
+      fill="#f8f9fa"
+      animationDuration=".5s"
+    ></p-progressSpinner>
+  </div>
+</ng-template>
+
+<app-scenario-dialog
+  [(displayDialog)]="displayDialog"
+  [editScenario]="editScenario"
+  (scenariosList)="updateScenariosList($event)"
+></app-scenario-dialog>

@@ -16,5 +16,39 @@
   "WhatIf": "Was wäre, wenn ...",
   "Generate": "Generieren",
   "Besucher": "Besucher",
-  "Admin": "Admin"
+  "Admin": "Admin",
+  "messages": {
+    "success": "Gespeichert",
+    "failure": "Fehler beim Speichern",
+    "error": "Fehlermeldung",
+    "fileSize": "Datei zu groß",
+    "fileAdd": "Datei hinzugefügt"
+  },
+  "dialog": {
+    "name": "Name",
+    "description": "Beschreibung",
+    "image": "Bild",
+    "imageAdd": "Bild hinzufügen",
+    "save": "Speichern",
+    "cancel": "Abbrechen"
+  },
+  "table": {
+    "zeige": "Zeige",
+    "von": "von",
+    "bis": "bis",
+    "einträge": "Einträge",
+    "reset": "Tabelle zurücksetzen",
+    "am": "Hinzugefügt am",
+    "keinEintrag": "Kein Eintrag"
+  },
+  "scenarios": {
+    "add": "Szenario hinzufügen",
+    "edit": "Szenario bearbeiten",
+    "delete": "Szenario löschen"
+  },
+  "oldMap": {
+    "add": "Alte Karte hinzufügen",
+    "edit": "Alte Karte bearbeiten",
+    "delete": "Alte Karte löschen"
+  }
 }

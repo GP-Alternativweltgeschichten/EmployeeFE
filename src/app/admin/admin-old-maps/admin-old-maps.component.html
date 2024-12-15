@@ -1,1 +1,142 @@
-<p>admin-old-maps works!</p>
+<p-table
+  responsiveLayout="stack"
+  #oldMapsTable
+  *ngIf="!loading else elseBlock"
+  [value]="this.oldMapsList"
+  [paginator]="true"
+  [rows]="tableRows"
+  [columns]="[{ field: 'name', header: 'Name' }, { field: 'description', header: 'Description' }, { field: 'created_at', header: 'Created At' }]"
+  [pageLinks]="5"
+  [rowsPerPageOptions]="tablePaginationSteps"
+  [sortField]="'name'"
+  [sortOrder]="-1"
+  [showCurrentPageReport]="true"
+  currentPageReportTemplate="{{translate.instant('table.zeige')}}
+                              {first}
+                              {{translate.instant('table.bis')}}
+                              {last}
+                              {{translate.instant('table.von')}}
+                              {totalRecords}
+                              {{translate.instant('table.eintraege')}}"
+
+>
+  <ng-template pTemplate="caption">
+    <div>
+      <button
+        type="button"
+        pButton
+        icon="awesome fa-eraser"
+        [pTooltip]="translate.instant('table.reset')"
+        tooltipPosition="top"
+        showDelay="200"
+        hideDelay="200"
+        (click)="clearTable(oldMapsTable)"
+        style="float: right; margin-right: 5px"
+      ></button>
+      <button
+        type="button"
+        pButton
+        icon="material-icons ui-icon-plus"
+        [pTooltip]="translate.instant('oldMaps.add')"
+        tooltipPosition="top"
+        showDelay="200"
+        hideDelay="200"
+        style="float:right; margin-right: 5px"
+        (click)="addOldMapDialog()"
+      ></button>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th id="actionButtonsHeader" class="buttonCol row-no-border-bot"></th>
+      <th id="nameHeader" class="medium-text-column-header-nowidth row-no-border-bot"
+          [pSortableColumn]="'name'">
+        {{ "dialog.name" | translate }}
+        <p-sortIcon [field]="'name'"></p-sortIcon>
+      </th>
+      <th id="descriptionHeader" class="medium-text-column-header-nowidth row-no-border-bot"
+          [pSortableColumn]="'description'">
+        {{ "dialog.beschreibung" | translate }}
+        <p-sortIcon [field]="'description'"></p-sortIcon>
+      </th>
+      <th id="createdAtHeader" class="medium-text-column-header-nowidth row-no-border-bot"
+          [pSortableColumn]="'created_at'" [style.width]="'100px'">
+        {{ "table.am" | translate }}
+        <p-sortIcon [field]="'created_at'"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-oldMap>
+    <tr
+      [pSelectableRowDblClick]="oldMap"
+      [pSelectableRow]="oldMap"
+      (dblclick)="editOldMapDialog(oldMap)"
+    >
+      <td class="buttonCol">
+        <span class="button-span">
+          <button
+            type="button"
+            pButton
+            class="button-columns-button-icon"
+            icon="material-icons ui-icon-delete"
+            style="font-size: 0.65em"
+            [pTooltip]="translate.instant('oldMaps.delete')"
+            tooltipPosition="top"
+            showDelay="200"
+            hideDelay="200"
+            (click)="deleteOldMapById(oldMap)"
+          ></button>
+          <button
+            type="button"
+            pButton
+            class="button-columns-button-icon"
+            icon="material-icons ui-icon-edit"
+            style="font-size: 0.65em"
+            [pTooltip]="translate.instant('oldMaps.edit')"
+            tooltipPosition="top"
+            showDelay="200"
+            hideDelay="200"
+            (click)="editOldMapDialog(oldMap)"
+          ></button>
+        </span>
+      </td>
+      <td class="medium-text-column-body-nowidth">
+        <span>{{
+            oldMap.name
+          }}</span>
+      </td>
+      <td class="medium-text-column-body-nowidth">
+        <span>{{
+            oldMap.description
+          }}</span>
+      </td>
+      <td class="date-column">
+        <span>{{ oldMap.created_at }}</span>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage" let-columns>
+    <tr>
+      <td [colSpan]="4">
+        {{ "table.keinEintrag" | translate }}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<ng-template #elseBlock>
+  <div class="flex justify-content-center align-items-center" style="height: 100%">
+    <p-progressSpinner
+      styleClass="spinner"
+      strokeWidth="8"
+      fill="#f8f9fa"
+      animationDuration=".5s"
+    ></p-progressSpinner>
+  </div>
+</ng-template>
+
+<app-old-map-dialog
+  [(displayDialog)]="displayDialog"
+  [editOldMap]="editOldMap"
+  (oldMapsList)="updateOldMapsList($event)"
+></app-old-map-dialog>
