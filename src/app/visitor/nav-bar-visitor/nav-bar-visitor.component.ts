@@ -23,9 +23,14 @@ export class NavBarVisitorComponent implements OnInit {
 
   private setNavItems(): void {
     this.navItems = [
+      { label: this.translate.instant('Modus'), icon: 'pi pi-desktop', items: [
+        { label: this.translate.instant('Besucher'), icon: 'pi pi-user', routerLink: ['/prompting'] },
+        { label: this.translate.instant('Mitarbeiter'), icon: 'pi pi-users', routerLink: ['/admin-scenarios']},
+        ]},
       { label: this.translate.instant('Prompting'), icon: 'pi pi-map-marker', routerLink: ['/prompting'] },
       { label: this.translate.instant('Szenarien'), icon: 'pi pi-building-columns', routerLink: ['/scenarios'] },
       { label: this.translate.instant('Alte Karten'), icon: 'pi pi-map', routerLink: ['/old-maps'] }
     ];
   }
+
 }

@@ -9,18 +9,6 @@ import {Router} from '@angular/router';
 })
 export class AppComponent {
   title = 'Frontend';
-  home: boolean = true;
-  modeSwitch: boolean = false;
 
   constructor(public router: Router) {}
-
-  switchMode(mode: boolean): void {
-    this.home = false;
-    this.modeSwitch = mode;
-    if (mode) {
-      this.router.navigate(['/admin-scenarios']);
-    } else {
-      this.router.navigate(['/prompting']);
-    }
-  }
 }
