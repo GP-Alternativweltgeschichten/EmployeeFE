@@ -68,6 +68,7 @@
         {{ "Table_Am" | translate }}
         <p-sortIcon [field]="'created_at'"></p-sortIcon>
       </th>
+      <th id="visibleHeader" class="buttonCol row-no-border-bot"></th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-scenario>
@@ -102,6 +103,18 @@
             hideDelay="200"
             (click)="editScenarioDialog(scenario)"
           ></button>
+          <button
+            type="button"
+            pButton
+            class="button-columns-button-icon"
+            icon="pi pi-eye"
+            style="font-size: 0.65em"
+            [pTooltip]="translate.instant('ZeigeKarte')"
+            tooltipPosition="top"
+            showDelay="200"
+            hideDelay="200"
+            (click)="showScenarioMap(scenario)"
+          ></button>
         </span>
       </td>
       <td class="medium-text-column-body-nowidth">
@@ -117,11 +130,17 @@
       <td class="date-column">
         <span>{{ scenario.created_at }}</span>
       </td>
+      <td class="buttonCol">
+        <p-checkbox
+          [binary]="true"
+          [(ngModel)]=""
+        ></p-checkbox>
+      </td>
     </tr>
   </ng-template>
   <ng-template pTemplate="emptymessage" let-columns>
     <tr>
-      <td [colSpan]="4">
+      <td [colSpan]="5">
         {{ "Table_KeinEintrag" | translate }}
       </td>
     </tr>

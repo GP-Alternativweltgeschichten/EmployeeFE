@@ -33,6 +33,7 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {CalendarModule} from 'primeng/calendar';
 import { ErrorComponent } from './error/error.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CheckboxModule} from 'primeng/checkbox';
 
 // Factory function for ngx-translate
 export function HttpLoaderFactory(http: HttpClient) {
@@ -80,7 +81,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     FileUploadModule,
     TableModule,
     ProgressSpinnerModule,
-    CalendarModule
+    CalendarModule,
+    CheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

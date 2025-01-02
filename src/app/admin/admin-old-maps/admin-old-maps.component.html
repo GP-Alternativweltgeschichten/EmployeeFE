@@ -9,7 +9,7 @@
   [value]="this.oldMapsList"
   [paginator]="true"
   [rows]="tableRows"
-  [columns]="[{ field: 'name', header: 'Name' }, { field: 'description', header: 'Description' }, { field: 'created_at', header: 'Created At' }]"
+  [columns]="[{ field: 'name', header: 'Name' }, { field: 'dateOfMap', header: 'Date of Map' }, { field: 'created_at', header: 'Created At' }]"
   [pageLinks]="5"
   [rowsPerPageOptions]="tablePaginationSteps"
   [sortField]="'name'"
@@ -60,7 +60,7 @@
       </th>
       <th id="descriptionHeader" class="medium-text-column-header-nowidth row-no-border-bot"
           [pSortableColumn]="'description'">
-        {{ "Dialog_Description" | translate }}
+        {{ "Dialog_DateOfMap" | translate }}
         <p-sortIcon [field]="'description'"></p-sortIcon>
       </th>
       <th id="createdAtHeader" class="medium-text-column-header-nowidth row-no-border-bot"
@@ -102,6 +102,18 @@
             hideDelay="200"
             (click)="editOldMapDialog(oldMap)"
           ></button>
+          <button
+            type="button"
+            pButton
+            class="button-columns-button-icon"
+            icon="pi pi-eye"
+            style="font-size: 0.65em"
+            [pTooltip]="translate.instant('ZeigeKarte')"
+            tooltipPosition="top"
+            showDelay="200"
+            hideDelay="200"
+            (click)="showScenarioMap(oldMap)"
+          ></button>
         </span>
       </td>
       <td class="medium-text-column-body-nowidth">
@@ -117,11 +129,17 @@
       <td class="date-column">
         <span>{{ oldMap.created_at }}</span>
       </td>
+      <td class="buttonCol">
+        <p-checkbox
+          [binary]="true"
+          [(ngModel)]=""
+        ></p-checkbox>
+      </td>
     </tr>
   </ng-template>
   <ng-template pTemplate="emptymessage" let-columns>
     <tr>
-      <td [colSpan]="4">
+      <td [colSpan]="5">
         {{ "Table_KeinEintrag" | translate }}
       </td>
     </tr>

@@ -25,6 +25,7 @@
   "Message_FileAdd": "File added",
   "Dialog_Name": "Name",
   "Dialog_Description": "Description",
+  "Dialog_DateOfMap": "Date of Map",
   "Dialog_Image": "Image",
   "Dialog_ImageAdd": "Add Image",
   "Dialog_Save": "Save",
@@ -41,5 +42,6 @@
   "ScenarioDelete": "Delete Scenario",
   "OldMapAdd": "Add Old Map",
   "OldMapEdit": "Edit Old Map",
-  "OldMapDelete": "Delete Old Map"
+  "OldMapDelete": "Delete Old Map",
+  "ZeigeKarte": "Show Map"
 }

@@ -72,4 +72,8 @@ export class AdminScenariosComponent implements OnInit, OnChanges{
   clearTable(table: Table) {
     table.clear();
   }
+
+  showScenarioMap(scenario: Scenario) {
+    console.log('Show Scenario Map' + scenario);
+  }
 }

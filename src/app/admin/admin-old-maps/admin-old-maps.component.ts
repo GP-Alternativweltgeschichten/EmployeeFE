@@ -71,4 +71,8 @@ export class AdminOldMapsComponent implements OnInit, OnChanges{
   clearTable(table: Table) {
     table.clear();
   }
+
+  showScenarioMap(oldMap: OldMap) {
+    console.log('Show Scenario Map' + oldMap);
+  }
 }
