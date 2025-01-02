@@ -32,6 +32,7 @@ import {TableModule} from 'primeng/table';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {CalendarModule} from 'primeng/calendar';
 import { ErrorComponent } from './error/error.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 // Factory function for ngx-translate
 export function HttpLoaderFactory(http: HttpClient) {
@@ -58,6 +59,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     MenubarModule,
     Button,
