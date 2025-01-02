@@ -18,38 +18,28 @@
   "Modus": "Mode",
   "Besucher": "Visitor",
   "Admin": "Admin",
-  "messages": {
-    "success": "Saved",
-    "failure": "Errror while saving",
-    "error": "Error Message",
-    "fileSize": "File too large",
-    "fileAdd": "File added"
-  },
-  "dialog": {
-    "name": "Name",
-    "description": "Description",
-    "image": "Image",
-    "imageAdd": "Add Image",
-    "save": "Save",
-    "cancel": "Cancel"
-  },
-  "table": {
-    "zeige": "Show",
-    "von": "from",
-    "bis": "to",
-    "einträge": "Entries",
-    "reset": "Reset Table",
-    "am": "Added on",
-    "keinEintrag": "No Entry"
-  },
-  "scenarios": {
-    "add": "Add Scenario",
-    "edit": "Edit Scenario",
-    "delete": "Delete Scenario"
-  },
-  "oldMaps": {
-    "add": "Add Old Map",
-    "edit": "Edit Old Map",
-    "delete": "Delete Old Map"
-  }
+  "Message_Success": "Saved",
+  "Message_Failure": "Error while saving",
+  "Message_Error": "Error message",
+  "Message_FileSize": "File too large",
+  "Message_FileAdd": "File added",
+  "Dialog_Name": "Name",
+  "Dialog_Description": "Description",
+  "Dialog_Image": "Image",
+  "Dialog_ImageAdd": "Add Image",
+  "Dialog_Save": "Save",
+  "Dialog_Cancel": "Cancel",
+  "Table_Zeige": "Show",
+  "Table_Von": "from",
+  "Table_Bis": "to",
+  "Table_Eintraege": "Entries",
+  "Table_Reset": "Reset table",
+  "Table_Am": "Added on",
+  "Table_KeinEintrag": "No entry",
+  "ScenarioAdd": "Add Scenario",
+  "ScenarioEdit": "Edit Scenario",
+  "ScenarioDelete": "Delete Scenario",
+  "OldMapAdd": "Add Old Map",
+  "OldMapEdit": "Edit Old Map",
+  "OldMapDelete": "Delete Old Map"
 }

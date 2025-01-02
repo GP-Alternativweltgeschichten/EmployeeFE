@@ -15,13 +15,13 @@
   [sortField]="'name'"
   [sortOrder]="-1"
   [showCurrentPageReport]="true"
-  currentPageReportTemplate="{{translate.instant('table.zeige')}}
+  currentPageReportTemplate="{{translate.instant('tTable_Zeige')}}
                               {first}
-                              {{translate.instant('table.bis')}}
+                              {{translate.instant('Table_Bis')}}
                               {last}
-                              {{translate.instant('table.von')}}
+                              {{translate.instant('Table_Von')}}
                               {totalRecords}
-                              {{translate.instant('table.eintraege')}}"
+                              {{translate.instant('Table_Eintraege')}}"
 
 >
   <ng-template pTemplate="caption">
@@ -30,7 +30,7 @@
         type="button"
         pButton
         icon="awesome fa-eraser"
-        [pTooltip]="translate.instant('table.reset')"
+        [pTooltip]="translate.instant('Table_Reset')"
         tooltipPosition="top"
         showDelay="200"
         hideDelay="200"
@@ -41,7 +41,7 @@
         type="button"
         pButton
         icon="material-icons ui-icon-plus"
-        [pTooltip]="translate.instant('oldMaps.add')"
+        [pTooltip]="translate.instant('OldMapAdd')"
         tooltipPosition="top"
         showDelay="200"
         hideDelay="200"
@@ -55,17 +55,17 @@
       <th id="actionButtonsHeader" class="buttonCol row-no-border-bot"></th>
       <th id="nameHeader" class="medium-text-column-header-nowidth row-no-border-bot"
           [pSortableColumn]="'name'">
-        {{ "dialog.name" | translate }}
+        {{ "Dialog_Name" | translate }}
         <p-sortIcon [field]="'name'"></p-sortIcon>
       </th>
       <th id="descriptionHeader" class="medium-text-column-header-nowidth row-no-border-bot"
           [pSortableColumn]="'description'">
-        {{ "dialog.beschreibung" | translate }}
+        {{ "Dialog_Description" | translate }}
         <p-sortIcon [field]="'description'"></p-sortIcon>
       </th>
       <th id="createdAtHeader" class="medium-text-column-header-nowidth row-no-border-bot"
           [pSortableColumn]="'created_at'" [style.width]="'100px'">
-        {{ "table.am" | translate }}
+        {{ "Table_Am" | translate }}
         <p-sortIcon [field]="'created_at'"></p-sortIcon>
       </th>
     </tr>
@@ -84,7 +84,7 @@
             class="button-columns-button-icon"
             icon="material-icons ui-icon-delete"
             style="font-size: 0.65em"
-            [pTooltip]="translate.instant('oldMaps.delete')"
+            [pTooltip]="translate.instant('OldMapDelete')"
             tooltipPosition="top"
             showDelay="200"
             hideDelay="200"
@@ -96,7 +96,7 @@
             class="button-columns-button-icon"
             icon="material-icons ui-icon-edit"
             style="font-size: 0.65em"
-            [pTooltip]="translate.instant('oldMaps.edit')"
+            [pTooltip]="translate.instant('OldMapEdit')"
             tooltipPosition="top"
             showDelay="200"
             hideDelay="200"
@@ -122,7 +122,7 @@
   <ng-template pTemplate="emptymessage" let-columns>
     <tr>
       <td [colSpan]="4">
-        {{ "table.keinEintrag" | translate }}
+        {{ "Table_KeinEintrag" | translate }}
       </td>
     </tr>
   </ng-template>

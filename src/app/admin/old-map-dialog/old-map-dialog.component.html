@@ -12,7 +12,7 @@
   <form #oldMapForm="ngForm">
     <div class="grid">
       <div class="col-2">
-        {{ "dialog.name" | translate }} *:
+        {{ "Dialog_Name" | translate }} *:
       </div>
       <div class="col-10">
         <span class="md-inputfield">
@@ -28,7 +28,7 @@
     </div>
     <div class="grid">
       <div class="col-2">
-        {{ "dialog.beschreibung" | translate }} *:
+        {{ "Dialog_Description" | translate }} *:
       </div>
       <div class="col-10">
          <span class="md-inputfield">
@@ -44,13 +44,13 @@
     </div>
     <div class="grid">
       <div class="col-2">
-        {{ "dialog.image" | translate }}:
+        {{ "Dialog_Image" | translate }}:
       </div>
       <div class="col-10">
         <p-fileUpload
           #fileUpload
           mode="advanced"
-          [chooseLabel]="this.translate.instant('dialog.imageAdd')"
+          [chooseLabel]="this.translate.instant('Dialog_ImageAdd')"
           chooseIcon="pi pi-upload"
           name="attachmentFileUpload"
           accept="image/*"
@@ -67,7 +67,7 @@
         pButton
         icon="fa fa-close"
         (click)="closeDialog()"
-        [label]="translate.instant('dialog.cancel')"
+        [label]="translate.instant('Dialog_Cancel')"
       ></button>
       <button
         class="saveButton"
@@ -76,7 +76,7 @@
         icon="fa fa-check"
         (click)="oldMapForm.valid ? saveOldMap() : null"
         [disabled]="!oldMapForm.valid"
-        [label]="translate.instant('dialog.save')"
+        [label]="translate.instant('Dialog_SBeave')"
       ></button>
     </div>
   </form>
