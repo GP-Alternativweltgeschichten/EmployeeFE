@@ -11,22 +11,22 @@ export class OldMapService {
   constructor(private comService: CommunicationService) { }
 
   getOldMaps(): Observable<OldMap[]> {
-    return this.comService.get<OldMap[]>('/old_maps');
+    return this.comService.get<OldMap[]>('/oldmaps');
   }
 
   getOldMap(id: number): Observable<OldMap> {
-    return this.comService.get<OldMap>('/old_maps/' + id);
+    return this.comService.get<OldMap>('/oldmaps/' + id);
   }
 
   createOldMap(oldMap: OldMap): Observable<OldMap> {
-    return this.comService.post<OldMap>('/old_maps', oldMap);
+    return this.comService.post<OldMap>('/oldmaps', oldMap);
   }
 
   updateOldMap(oldMap: OldMap): Observable<OldMap> {
-    return this.comService.put<OldMap>('/old_maps', oldMap);
+    return this.comService.put<OldMap>('/oldmaps', oldMap);
   }
 
   deleteOldMap(id: number): Observable<OldMap> {
-    return this.comService.delete<OldMap>('/old_maps/' + id);
+    return this.comService.delete<OldMap>('/oldmaps/' + id);
   }
 }

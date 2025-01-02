@@ -24,15 +24,14 @@ export class AdminOldMapsComponent implements OnInit, OnChanges{
   }
 
   ngOnInit() {
-    // this.oldMapService.getOldMaps().subscribe({
-    //   next: (data: OldMap[]) => {
-    //     this.oldMapsList = data;
-    //   },
-    //   complete: () => {
-    //     this.loading = false;
-    //   }
-    // })
-    this.loading = false;
+    this.oldMapService.getOldMaps().subscribe({
+      next: (data: OldMap[]) => {
+        this.oldMapsList = data;
+      },
+      complete: () => {
+        this.loading = false;
+      }
+    })
   }
 
   ngOnChanges() {

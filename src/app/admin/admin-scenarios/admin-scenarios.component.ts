@@ -24,15 +24,14 @@ export class AdminScenariosComponent implements OnInit, OnChanges{
   }
 
   ngOnInit() {
-    // this.scenarioService.getScenarios().subscribe({
-    //   next: (data: Scenario[]) => {
-    //     this.scenariosList = data;
-    //   },
-    //   complete: () => {
-    //     this.loading = false;
-    //   }
-    // })
-    this.loading = false;
+    this.scenarioService.getScenarios().subscribe({
+      next: (data: Scenario[]) => {
+        this.scenariosList = data;
+      },
+      complete: () => {
+        this.loading = false;
+      }
+    })
   }
 
   ngOnChanges() {
