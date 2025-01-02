@@ -44,6 +44,26 @@ export class PromptingComponent implements OnInit {
     event.preventDefault(); // Suppress right-click menu
   }
 
+  onImageClick(): void {
+    const containerEl = this.container.nativeElement;
+    const imgEl = this.img.nativeElement;
+
+    if (!this.isDragging) {
+      if (this.zoomLevel > 100) {
+        //this.zoomLevel = this.minZoom;
+        //imgEl.style.width = '100%';
+        //imgEl.style.cursor = 'zoom-in';
+
+        //containerEl.scrollLeft = 0;
+        //containerEl.scrollTop = 0;
+      } else {
+        this.zoomLevel = 300;
+        imgEl.style.width = '300%';
+        imgEl.style.cursor = 'grab';
+      }
+    }
+  }
+
   adjustZoom(amount: number): void {
     const newZoom = this.zoomLevel + amount;
     if (newZoom >= this.minZoom && newZoom <= this.maxZoom) {
@@ -55,14 +75,25 @@ export class PromptingComponent implements OnInit {
 
   @HostListener('wheel', ['$event'])
   onScroll(event: WheelEvent): void {
-    event.preventDefault();
+    const containerEl = this.container.nativeElement;
 
-    const zoomChange = event.deltaY < 0 ? 10 : -10; // Zoom in or out
-    const newZoom = Math.min(Math.max(this.zoomLevel + zoomChange, this.minZoom), this.maxZoom);
+    // Check if the cursor is over the container
+    const rect = containerEl.getBoundingClientRect();
+    const isOverImage =
+      event.clientX >= rect.left &&
+      event.clientX <= rect.right &&
+      event.clientY >= rect.top &&
+      event.clientY <= rect.bottom;
 
-    this.zoomLevel = newZoom;
-    this.img.nativeElement.style.width = `${newZoom}%`;
-    this.img.nativeElement.style.cursor = newZoom > 100 ? 'grab' : 'zoom-in';
+    if (isOverImage) {
+      event.preventDefault();
+      const zoomChange = event.deltaY < 0 ? 10 : -10; // Zoom in or out
+      const newZoom = Math.min(Math.max(this.zoomLevel + zoomChange, this.minZoom), this.maxZoom);
+
+      this.zoomLevel = newZoom;
+      this.img.nativeElement.style.width = `${newZoom}%`;
+      this.img.nativeElement.style.cursor = newZoom > 100 ? 'grab' : 'zoom-in';
+    }
   }
 
   onMouseDown(event: MouseEvent): void {

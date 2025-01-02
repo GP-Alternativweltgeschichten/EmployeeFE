@@ -16,6 +16,7 @@
   position: relative;
   border: 2px solid #ccc;
   border-radius: 5px;
+  margin-bottom: 20px;
   cursor: grab; /* Default cursor for panning */
 }
 
@@ -32,7 +33,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .zoom-controls button {
@@ -107,4 +108,3 @@
 .generate-button:hover {
   background-color: #0056b3;
 }
-
