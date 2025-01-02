@@ -1,6 +1,7 @@
 export interface OldMap {
   id: number;
-  name: string;
-  description: string;
-  image: any;
+  map_id: number;
+  dateOfMap: string;
+  created_at: Date;
+  updated_at: Date;
 }
