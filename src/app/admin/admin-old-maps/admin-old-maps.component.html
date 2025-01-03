@@ -68,6 +68,32 @@
         {{ "Table_Am" | translate }}
         <p-sortIcon [field]="'created_at'"></p-sortIcon>
       </th>
+      <th id="visibleHeader" class="buttonCol row-no-border-bot"></th>
+    </tr>
+    <tr>
+      <th id="actionsButtonHeader" class="buttonCol row-no-border-bot"></th>
+      <th id="nameFilter" class="medium-text-column-header-nowidth row-no-border-bot">
+        <p-columnFilter
+          type="text"
+          field="name"
+          [placeholder]="translate.instant('Beinhaltet')"
+        ></p-columnFilter>
+      </th>
+      <th id="ndateOfMapFilter" class="medium-text-column-header-nowidth row-no-border-bot">
+        <p-columnFilter
+          type="text"
+          field="dateOfMap"
+          [placeholder]="translate.instant('Beinhaltet')"
+        ></p-columnFilter>
+      </th>
+      <th id="createdAtFilter" class="medium-text-column-header-nowidth row-no-border-bot">
+        <p-columnFilter
+          type="text"
+          field="created_at"
+          [placeholder]="translate.instant('Beinhaltet')"
+        ></p-columnFilter>
+      </th>
+      <th id="visiblesHeader" class="buttonCol row-no-border-bot"></th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-oldMap>
@@ -132,7 +158,8 @@
       <td class="buttonCol">
         <p-checkbox
           [binary]="true"
-          [(ngModel)]=""
+          [(ngModel)]="tmpBoolean"
+          (onChange)="changeBoolean()"
         ></p-checkbox>
       </td>
     </tr>

@@ -19,6 +19,15 @@ export class AdminScenariosComponent implements OnInit, OnChanges{
 
   scenariosList: Scenario[] = [];
 
+  inputName: string = '';
+  inputDescription: string = '';
+  inputCreatedAt: string = '';
+
+  tmpBoolean = false;
+  changeBoolean() {
+    this.tmpBoolean = !this.tmpBoolean;
+  }
+
   constructor(public scenarioService: ScenarioService,
               public translate: TranslateService) {
   }
@@ -71,6 +80,9 @@ export class AdminScenariosComponent implements OnInit, OnChanges{
 
   clearTable(table: Table) {
     table.clear();
+    this.inputName = '';
+    this.inputDescription = '';
+    this.inputCreatedAt = '';
   }
 
   showScenarioMap(scenario: Scenario) {

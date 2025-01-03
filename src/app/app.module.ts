@@ -34,6 +34,7 @@ import {CalendarModule} from 'primeng/calendar';
 import { ErrorComponent } from './error/error.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CheckboxModule} from 'primeng/checkbox';
+import {InputTextModule} from "primeng/inputtext";
 
 // Factory function for ngx-translate
 export function HttpLoaderFactory(http: HttpClient) {
@@ -58,32 +59,33 @@ export function HttpLoaderFactory(http: HttpClient) {
     ScenarioDialogComponent,
     ErrorComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    MenubarModule,
-    Button,
-    CardModule,
-    ImageModule,
-    HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
-    ToggleButtonModule,
-    FormsModule,
-    SelectButtonModule,
-    DialogModule,
-    FileUploadModule,
-    TableModule,
-    ProgressSpinnerModule,
-    CalendarModule,
-    CheckboxModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        MenubarModule,
+        Button,
+        CardModule,
+        ImageModule,
+        HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
+        ToggleButtonModule,
+        FormsModule,
+        SelectButtonModule,
+        DialogModule,
+        FileUploadModule,
+        TableModule,
+        ProgressSpinnerModule,
+        CalendarModule,
+        CheckboxModule,
+        InputTextModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

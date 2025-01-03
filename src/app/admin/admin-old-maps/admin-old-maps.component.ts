@@ -19,6 +19,15 @@ export class AdminOldMapsComponent implements OnInit, OnChanges{
 
   oldMapsList: OldMap[] = [];
 
+  inputName: string = '';
+  inputDateOfMap: string = '';
+  inputCreatedAt: string = '';
+
+  tmpBoolean = false;
+  changeBoolean() {
+    this.tmpBoolean = !this.tmpBoolean;
+  }
+
   constructor(public oldMapService: OldMapService,
               public translate: TranslateService) {
   }
@@ -70,6 +79,9 @@ export class AdminOldMapsComponent implements OnInit, OnChanges{
 
   clearTable(table: Table) {
     table.clear();
+    this.inputName = '';
+    this.inputDateOfMap = '';
+    this.inputCreatedAt = '';
   }
 
   showScenarioMap(oldMap: OldMap) {
