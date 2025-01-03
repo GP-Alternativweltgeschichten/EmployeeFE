@@ -4,9 +4,26 @@
 </div>
 
 <div class="container">
+  <!-- Zoom controls -->
+  <div class="zoom-controls">
+    <button (click)="adjustZoom(-10)" [disabled]="zoomLevel <= minZoom">-</button>
+    <span>{{ zoomLevel }}%</span>
+    <button (click)="adjustZoom(10)" [disabled]="zoomLevel >= maxZoom">+</button>
+  </div>
+
   <!-- Map image container -->
-  <div class="map-container">
-    <img src="assets/img/olpe.png" alt="Map" class="map-image">
+  <div class="map-container"
+       #container
+       (mouseleave)="onMouseLeave()"
+       (mousedown)="onMouseDown($event)"
+       (mouseup)="onMouseUp()"
+       (mousemove)="onMouseMove($event)">
+
+    <img src="assets/img/olpe.png"
+      #img
+      (contextmenu)="onContextMenu($event)"
+      (click)="onImageClick()"
+      class="map-image"/>
   </div>
 
   <!-- Input field with helper text and button -->
