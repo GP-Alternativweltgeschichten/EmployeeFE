@@ -15,6 +15,8 @@ export class PromptingComponent implements OnInit {
   maxZoom = 400;
   minZoom = 100;
   isDragging = false;
+  dragThreshold = 5; // Threshold to differentiate drag from click
+  mouseMoved = false;
   pos = { top: 0, left: 0, x: 0, y: 0 };
 
   @ViewChild('container', { static: true }) container!: ElementRef;
@@ -38,8 +40,8 @@ export class PromptingComponent implements OnInit {
     this.inputText = value;
   }
 
-
-  //TODO: for draw feature?
+  /**********Zoom and draw features**********/
+  //TODO: draw feature...
   onContextMenu(event: MouseEvent): void {
     event.preventDefault(); // Suppress right-click menu
   }
@@ -48,24 +50,28 @@ export class PromptingComponent implements OnInit {
     const containerEl = this.container.nativeElement;
     const imgEl = this.img.nativeElement;
 
-    if (!this.isDragging) {
-      if (this.zoomLevel > 100) {
-        //this.zoomLevel = this.minZoom;
-        //imgEl.style.width = '100%';
-        //imgEl.style.cursor = 'zoom-in';
+    if (this.mouseMoved) {
+      this.mouseMoved = false; // Reset movement tracking
+      return; // Skip zoom-out if drag detected
+    }
 
-        //containerEl.scrollLeft = 0;
-        //containerEl.scrollTop = 0;
-      } else {
-        this.zoomLevel = 300;
-        imgEl.style.width = '300%';
-        imgEl.style.cursor = 'grab';
-      }
+    if (this.zoomLevel > 100) {
+      this.zoomLevel = this.minZoom;
+      imgEl.style.width = '100%';
+      imgEl.style.cursor = 'zoom-in';
+
+      containerEl.scrollLeft = 0;
+      containerEl.scrollTop = 0;
+    } else {
+      this.zoomLevel = 300;
+      imgEl.style.width = '300%';
+      imgEl.style.cursor = 'grab';
     }
   }
 
   adjustZoom(amount: number): void {
     const newZoom = this.zoomLevel + amount;
+
     if (newZoom >= this.minZoom && newZoom <= this.maxZoom) {
       this.zoomLevel = newZoom;
       this.img.nativeElement.style.width = `${newZoom}%`;
@@ -76,9 +82,8 @@ export class PromptingComponent implements OnInit {
   @HostListener('wheel', ['$event'])
   onScroll(event: WheelEvent): void {
     const containerEl = this.container.nativeElement;
-
-    // Check if the cursor is over the container
     const rect = containerEl.getBoundingClientRect();
+    // Check if the cursor is over the container
     const isOverImage =
       event.clientX >= rect.left &&
       event.clientX <= rect.right &&
@@ -101,6 +106,7 @@ export class PromptingComponent implements OnInit {
     if (event.button !== 0 || this.zoomLevel === 100) return;
 
     this.isDragging = true; // Set dragging state to true
+    this.mouseMoved = false; // Reset movement detection
     const containerEl = this.container.nativeElement;
 
     this.pos = {
@@ -112,7 +118,6 @@ export class PromptingComponent implements OnInit {
 
     containerEl.style.cursor = 'grabbing';
     containerEl.style.userSelect = 'none';
-
     event.preventDefault(); // Prevent default behavior
   }
 
@@ -120,9 +125,12 @@ export class PromptingComponent implements OnInit {
     if (!this.isDragging || this.zoomLevel === 100) return; // Only move when dragging
 
     const containerEl = this.container.nativeElement;
-
     const dx = event.clientX - this.pos.x;
     const dy = event.clientY - this.pos.y;
+
+    if (Math.abs(dx) > this.dragThreshold || Math.abs(dy) > this.dragThreshold) {
+      this.mouseMoved = true; // Mark movement as drag
+    }
 
     containerEl.scrollLeft = this.pos.left - dx;
     containerEl.scrollTop = this.pos.top - dy;
@@ -131,7 +139,6 @@ export class PromptingComponent implements OnInit {
   onMouseUp(): void {
     this.isDragging = false;
     const containerEl = this.container.nativeElement;
-
     containerEl.style.cursor = this.zoomLevel > 100 ? 'grab' : 'zoom-in';
   }
 
