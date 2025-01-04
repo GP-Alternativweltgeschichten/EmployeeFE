@@ -1,8 +1,10 @@
 import {Component, OnChanges, OnInit} from '@angular/core';
 import {Scenario} from '../../services/Scenario';
+import {Map} from '../../services/Map';
 import {ScenarioService} from '../../services/scenario.service';
 import {TranslateService} from '@ngx-translate/core';
 import {Table} from 'primeng/table';
+import {MapService} from '../../services/map.service';
 
 @Component({
   selector: 'app-admin-scenarios',
@@ -15,9 +17,11 @@ export class AdminScenariosComponent implements OnInit, OnChanges{
 
   displayDialog: boolean | undefined;
   editScenario: Scenario | null | undefined;
-  loading = true;
+  loadingScenario = true;
+  loadingMap = true;
 
   scenariosList: Scenario[] = [];
+  mapsList: Map[] = [];
 
   inputName: string = '';
   inputDescription: string = '';
@@ -29,6 +33,7 @@ export class AdminScenariosComponent implements OnInit, OnChanges{
   }
 
   constructor(public scenarioService: ScenarioService,
+              public mapService: MapService,
               public translate: TranslateService) {
   }
 
@@ -38,7 +43,15 @@ export class AdminScenariosComponent implements OnInit, OnChanges{
         this.scenariosList = data;
       },
       complete: () => {
-        this.loading = false;
+        this.loadingScenario = false;
+      }
+    })
+    this.mapService.getMaps().subscribe({
+      next: (data: Map[]) => {
+        this.mapsList = data;
+      },
+      complete: () => {
+        this.loadingMap = false;
       }
     })
   }
@@ -49,6 +62,10 @@ export class AdminScenariosComponent implements OnInit, OnChanges{
 
   updateScenariosList(scenarios: Scenario[]) {
     this.scenariosList = scenarios;
+  }
+
+  updateMapsList(maps: Map[]) {
+    this.mapsList = maps;
   }
 
   addScenarioDialog() {
@@ -71,7 +88,7 @@ export class AdminScenariosComponent implements OnInit, OnChanges{
           },
           complete: () => {
 
-            this.loading = false;
+            this.loadingScenario = false;
           }
         })
       }

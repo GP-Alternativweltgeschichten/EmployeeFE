@@ -5,7 +5,7 @@
 <p-table
   responsiveLayout="stack"
   #oldMapsTable
-  *ngIf="!loading else elseBlock"
+  *ngIf="!loadingOldMap && !loadingMap else elseBlock"
   [value]="this.oldMapsList"
   [paginator]="true"
   [rows]="tableRows"
@@ -188,4 +188,5 @@
   [(displayDialog)]="displayDialog"
   [editOldMap]="editOldMap"
   (oldMapsList)="updateOldMapsList($event)"
+  (mapsList)="updateMapsList($event)"
 ></app-old-map-dialog>

@@ -5,7 +5,7 @@
 <p-table
   responsiveLayout="stack"
   #scenariosTable
-  *ngIf="!loading else elseBlock"
+  *ngIf="!loadingScenario && !loadingMap else elseBlock"
   [value]="this.scenariosList"
   [paginator]="true"
   [rows]="tableRows"
@@ -188,4 +188,5 @@
   [(displayDialog)]="displayDialog"
   [editScenario]="editScenario"
   (scenariosList)="updateScenariosList($event)"
+  (mapsList)="updateMapsList($event)"
 ></app-scenario-dialog>

@@ -17,7 +17,7 @@
       <div class="col-10">
         <span class="md-inputfield">
           <input
-            name="attachmentName"
+            name="name"
             required
             [(ngModel)]="selectedScenario.name"
             class="p-inputtext ui-corner-all ui-state-default ui-widget"
@@ -33,13 +33,41 @@
       <div class="col-10">
          <span class="md-inputfield">
            <input
-             name="attachmentDescription"
+             name="description"
              required
              [(ngModel)]="selectedScenario.description"
              class="p-inputtext ui-corner-all ui-state-default ui-widget"
              [style]="{ width: '100%' }"
            />
          </span>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col-2">
+        {{ "Dialog_Sichtbarkeit" | translate }}:
+      </div>
+      <div class="col-10">
+        <p-toggleButton
+          [(ngModel)]="selectedMap.visible"
+          onLabel="{{ 'Dialog_Visible' | translate }}"
+          offLabel="{{ 'Dialog_Invisible' | translate }}"
+        ></p-toggleButton>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col-2">
+        {{ "Dialog_Name" | translate }} *:
+      </div>
+      <div class="col-10">
+        <span class="md-inputfield">
+          <input
+            name="name"
+            required
+            [(ngModel)]="selectedMap.name"
+            class="p-inputtext ui-corner-all ui-state-default ui-widget"
+            [style]="{ width: '100%' }"
+          />
+        </span>
       </div>
     </div>
     <div class="grid">
@@ -74,7 +102,7 @@
         type="button"
         pButton
         icon="fa fa-check"
-        (click)="scenarioForm.valid ? saveScenario() : null"
+        (click)="scenarioForm.valid ? saveScenarioAndMap() : null"
         [disabled]="!scenarioForm.valid"
         [label]="translate.instant('Dialog_Save')"
       ></button>

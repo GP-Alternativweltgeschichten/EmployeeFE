@@ -3,6 +3,8 @@ import {TranslateService} from '@ngx-translate/core';
 import {OldMapService} from '../../services/old-map.service';
 import {OldMap} from '../../services/OldMap';
 import {Table} from 'primeng/table';
+import {Map} from '../../services/Map';
+import {MapService} from '../../services/map.service';
 
 @Component({
   selector: 'app-admin-old-maps',
@@ -15,9 +17,11 @@ export class AdminOldMapsComponent implements OnInit, OnChanges{
 
   displayDialog: boolean | undefined;
   editOldMap: OldMap | undefined | null;
-  loading = true;
+  loadingOldMap = true;
+  loadingMap = true;
 
   oldMapsList: OldMap[] = [];
+  mapsList: Map[] = [];
 
   inputName: string = '';
   inputDateOfMap: string = '';
@@ -29,6 +33,7 @@ export class AdminOldMapsComponent implements OnInit, OnChanges{
   }
 
   constructor(public oldMapService: OldMapService,
+              public mapService: MapService,
               public translate: TranslateService) {
   }
 
@@ -38,7 +43,15 @@ export class AdminOldMapsComponent implements OnInit, OnChanges{
         this.oldMapsList = data;
       },
       complete: () => {
-        this.loading = false;
+        this.loadingOldMap = false;
+      }
+    })
+    this.mapService.getMaps().subscribe({
+      next: (data: Map[]) => {
+        this.mapsList = data;
+      },
+      complete: () => {
+        this.loadingMap = false;
       }
     })
   }
@@ -49,6 +62,10 @@ export class AdminOldMapsComponent implements OnInit, OnChanges{
 
   updateOldMapsList(oldMaps: OldMap[]) {
     this.oldMapsList = oldMaps;
+  }
+
+  updateMapsList(maps: Map[]) {
+    this.mapsList = maps;
   }
 
   addOldMapDialog() {
@@ -70,7 +87,7 @@ export class AdminOldMapsComponent implements OnInit, OnChanges{
             this.oldMapsList = data;
           },
           complete: () => {
-            this.loading = false;
+            this.loadingOldMap = false;
           }
         })
       }
