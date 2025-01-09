@@ -5,7 +5,7 @@
 <p-table
   responsiveLayout="stack"
   #oldMapsTable
-  *ngIf="!loadingOldMap && !loadingMap else elseBlock"
+  *ngIf="!loadingOldMap else elseBlock"
   [value]="this.oldMapsList"
   [paginator]="true"
   [rows]="tableRows"
@@ -149,17 +149,17 @@
       </td>
       <td class="medium-text-column-body-nowidth">
         <span>{{
-            oldMap.description
+            oldMap.dateOfMap
           }}</span>
       </td>
       <td class="date-column">
-        <span>{{ oldMap.created_at }}</span>
+        <span>{{ oldMap.createdAt }}</span>
       </td>
       <td class="buttonCol">
         <p-checkbox
           [binary]="true"
-          [(ngModel)]="tmpBoolean"
-          (onChange)="changeBoolean()"
+          value="oldMap.visible"
+          disabled="true"
         ></p-checkbox>
       </td>
     </tr>
@@ -188,5 +188,4 @@
   [(displayDialog)]="displayDialog"
   [editOldMap]="editOldMap"
   (oldMapsList)="updateOldMapsList($event)"
-  (mapsList)="updateMapsList($event)"
 ></app-old-map-dialog>

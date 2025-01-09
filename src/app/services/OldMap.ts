@@ -1,7 +1,10 @@
 export interface OldMap {
   id: number;
-  map_id: number;
+  name: string;
+  image: any;
   dateOfMap: string;
-  created_at: Date;
-  updated_at: Date;
+  editable: boolean;
+  visible: boolean;
+  createdAt: Date;
+  updatedAt: Date;
 }

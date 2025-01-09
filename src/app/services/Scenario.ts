@@ -1,8 +1,10 @@
 export interface Scenario {
   id: number;
   name: string;
-  map_id: number;
+  image: any;
   description: string;
-  created_at: Date;
-  updated_at: Date;
+  editable: boolean;
+  visible: boolean;
+  createdAt: Date;
+  updatedAtt: Date;
 }

@@ -19,7 +19,7 @@
           <input
             name="name"
             required
-            [(ngModel)]="selectedMap.name"
+            [(ngModel)]="selectedOldMap.name"
             class="p-inputtext ui-corner-all ui-state-default ui-widget"
             [style]="{ width: '100%' }"
           />
@@ -44,6 +44,30 @@
     </div>
     <div class="grid">
       <div class="col-2">
+        {{ "Dialog_Bearbeitbarkeit" | translate }}:
+      </div>
+      <div class="col-10">
+        <p-toggleButton
+          [(ngModel)]="selectedOldMap.editable"
+          onLabel="{{ 'Dialog_Bearbeitbar' | translate }}"
+          offLabel="{{ 'Dialog_NichtBearbeitbar' | translate }}"
+        ></p-toggleButton>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col-2">
+        {{ "Dialog_Sichtbarkeit" | translate }}:
+      </div>
+      <div class="col-10">
+        <p-toggleButton
+          [(ngModel)]="selectedOldMap.visible"
+          onLabel="{{ 'Dialog_Visible' | translate }}"
+          offLabel="{{ 'Dialog_Invisible' | translate }}"
+        ></p-toggleButton>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col-2">
         {{ "Dialog_Image" | translate }}:
       </div>
       <div class="col-10">
@@ -60,18 +84,6 @@
         />
       </div>
     </div>
-    <div class="grid">
-      <div class="col-2">
-        {{ "Dialog_Sichtbarkeit" | translate }}:
-      </div>
-      <div class="col-10">
-        <p-toggleButton
-          [(ngModel)]="selectedMap.visible"
-          onLabel="{{ 'Dialog_Visible' | translate }}"
-          offLabel="{{ 'Dialog_Invisible' | translate }}"
-          ></p-toggleButton>
-      </div>
-    </div>
     <div style="padding-top: 1rem" class="ui-dialog-buttonpane ui-helper-clearfix">
       <button
         class="discardButton"
@@ -86,7 +98,7 @@
         type="button"
         pButton
         icon="fa fa-check"
-        (click)="oldMapForm.valid ? saveOldMapAndMap() : null"
+        (click)="oldMapForm.valid ? saveOldMap() : null"
         [disabled]="!oldMapForm.valid"
         [label]="translate.instant('Dialog_Save')"
       ></button>

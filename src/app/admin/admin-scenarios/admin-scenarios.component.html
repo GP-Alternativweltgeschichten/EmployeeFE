@@ -5,7 +5,7 @@
 <p-table
   responsiveLayout="stack"
   #scenariosTable
-  *ngIf="!loadingScenario && !loadingMap else elseBlock"
+  *ngIf="!loadingScenario else elseBlock"
   [value]="this.scenariosList"
   [paginator]="true"
   [rows]="tableRows"
@@ -153,13 +153,13 @@
           }}</span>
       </td>
       <td class="date-column">
-        <span>{{ scenario.created_at }}</span>
+        <span>{{ scenario.createdAt }}</span>
       </td>
       <td class="buttonCol">
         <p-checkbox
           [binary]="true"
-          [(ngModel)]="tmpBoolean"
-          (onChange)="changeBoolean()"
+          value="scenario.visible"
+          disabled="true"
         ></p-checkbox>
       </td>
     </tr>
@@ -188,5 +188,4 @@
   [(displayDialog)]="displayDialog"
   [editScenario]="editScenario"
   (scenariosList)="updateScenariosList($event)"
-  (mapsList)="updateMapsList($event)"
 ></app-scenario-dialog>

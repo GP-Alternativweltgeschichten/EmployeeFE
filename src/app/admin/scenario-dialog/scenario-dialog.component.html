@@ -44,30 +44,26 @@
     </div>
     <div class="grid">
       <div class="col-2">
-        {{ "Dialog_Sichtbarkeit" | translate }}:
+        {{ "Dialog_Bearbeitbarkeit" | translate }}:
       </div>
       <div class="col-10">
         <p-toggleButton
-          [(ngModel)]="selectedMap.visible"
-          onLabel="{{ 'Dialog_Visible' | translate }}"
-          offLabel="{{ 'Dialog_Invisible' | translate }}"
+          [(ngModel)]="selectedScenario.editable"
+          onLabel="{{ 'Dialog_Bearbeitbar' | translate }}"
+          offLabel="{{ 'Dialog_NichtBearbeitbar' | translate }}"
         ></p-toggleButton>
       </div>
     </div>
     <div class="grid">
       <div class="col-2">
-        {{ "Dialog_Name" | translate }} *:
+        {{ "Dialog_Sichtbarkeit" | translate }}:
       </div>
       <div class="col-10">
-        <span class="md-inputfield">
-          <input
-            name="name"
-            required
-            [(ngModel)]="selectedMap.name"
-            class="p-inputtext ui-corner-all ui-state-default ui-widget"
-            [style]="{ width: '100%' }"
-          />
-        </span>
+        <p-toggleButton
+          [(ngModel)]="selectedScenario.visible"
+          onLabel="{{ 'Dialog_Visible' | translate }}"
+          offLabel="{{ 'Dialog_Invisible' | translate }}"
+        ></p-toggleButton>
       </div>
     </div>
     <div class="grid">
@@ -102,7 +98,7 @@
         type="button"
         pButton
         icon="fa fa-check"
-        (click)="scenarioForm.valid ? saveScenarioAndMap() : null"
+        (click)="scenarioForm.valid ? saveScenario() : null"
         [disabled]="!scenarioForm.valid"
         [label]="translate.instant('Dialog_Save')"
       ></button>
