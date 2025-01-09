@@ -1,6 +1,6 @@
 import {Component, OnChanges, OnInit} from '@angular/core';
-import {Scenario} from '../../services/Scenario';
-import {ScenarioService} from '../../services/scenario.service';
+import {Scenario} from '../services/Scenario';
+import {ScenarioService} from '../services/scenario.service';
 import {TranslateService} from '@ngx-translate/core';
 import {Table} from 'primeng/table';
 

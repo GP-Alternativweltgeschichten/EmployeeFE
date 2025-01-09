@@ -1,107 +1,101 @@
 import {booleanAttribute, Component, EventEmitter, Input, OnChanges, Output, ViewChild} from '@angular/core';
-import {Scenario} from '../../services/Scenario';
+import {OldMap} from '../services/OldMap';
 import {FileUpload, FileUploadHandlerEvent} from 'primeng/fileupload';
-import {ScenarioService} from '../../services/scenario.service';
-import {Observable, Subject} from 'rxjs';
+import {OldMapService} from '../services/old-map.service';
 import {TranslateService} from '@ngx-translate/core';
+import {Observable, Subject} from 'rxjs';
 
 @Component({
-  selector: 'app-scenario-dialog',
-  templateUrl: './scenario-dialog.component.html',
-  styleUrl: './scenario-dialog.component.css'
+  selector: 'app-old-map-dialog',
+  templateUrl: './old-map-dialog.component.html',
+  styleUrl: './old-map-dialog.component.css'
 })
-export class ScenarioDialogComponent implements OnChanges{
+export class OldMapDialogComponent implements OnChanges{
   @Input({transform: booleanAttribute}) displayDialog: boolean = false;
-  @Input() editScenario: any;
+  @Input() editOldMap: any;
   @Output() displayDialogChange = new EventEmitter<boolean>();
-  @Output() scenariosList = new EventEmitter<Scenario[]>();
+  @Output() oldMapsList = new EventEmitter<OldMap[]>();
 
   @ViewChild('fileUpload') fileUpload: FileUpload | undefined;
 
-  selectedScenario = {
+  selectedOldMap = {
     id: null,
     name: null,
     image: null,
-    description: null,
+    dateOfMap: null,
     editable: null,
     visible: null,
-    createdAt:  null,
+    createdAt: null,
     updatedAt: null,
   };
-  scenarios: Scenario[] | undefined;
+  oldMaps: OldMap[] | undefined;
 
   private emptyInput: boolean = false;
 
   loadingFile = false;
 
-  constructor(public scenarioService: ScenarioService, public translate: TranslateService) {
+  constructor(public oldMapService: OldMapService ,public translate: TranslateService) {
   }
 
   ngOnChanges(): void {
-    if (this.editScenario) {
-      this.selectedScenario = {
-        ...this.editScenario,
-        created_at: new Date(this.editScenario.created_at),
-        updated_at: new Date(this.editScenario.updated_at)
+    if (this.editOldMap) {
+      this.selectedOldMap = {
+        ...this.editOldMap,
+        created_at: new Date(this.editOldMap.created_at),
+        updated_at: new Date(this.editOldMap.updated_at)
       }
     } else {
-      this.selectedScenario = {
+      this.selectedOldMap = {
         id: null,
         name: null,
         image: null,
-        description: null,
+        dateOfMap: null,
         editable: null,
         visible: null,
-        createdAt:  null,
+        createdAt: null,
         updatedAt: null,
       }
     }
   }
 
   closeDialog() {
-    this.selectedScenario = {
+    this.selectedOldMap = {
       id: null,
       name: null,
       image: null,
-      description: null,
+      dateOfMap: null,
       editable: null,
       visible: null,
-      createdAt:  null,
+      createdAt: null,
       updatedAt: null,
     }
     this.displayDialogChange.emit(false);
     this.fileUpload?.clear();
   }
 
-  private trimScenarioInputs() {
+  private trimOldMapInputs() {
     this.emptyInput = false;
-    if (this.selectedScenario === null) {
-      return;
-    }
-    // @ts-ignore
-    this.selectedScenario.name = this.selectedScenario.name.trim();
-    if (this.selectedScenario.name === "") {
-      this.emptyInput = true;
-    }
-    // @ts-ignore
-    this.selectedScenario.description = this.selectedScenario.description.trim();
-    if (this.selectedScenario.description === "") {
-      this.emptyInput = true;
+    if (this.selectedOldMap) {
+      // @ts-ignore
+      this.selectedOldMap.name = this.selectedOldMap.dateOfMap.trim();
+      if (this.selectedOldMap.dateOfMap === "") {
+        this.emptyInput = true;
+      }
     }
   }
 
-  saveScenario() {
-    this.trimScenarioInputs();
+  saveOldMap() {
+    this.trimOldMapInputs();
     if (this.emptyInput) {
       return;
     }
-    if (this.selectedScenario.image === null) {
+    if (this.selectedOldMap.image === null) {
       this.subscribeToObservable();
     }
-    this.fileToByte(this.selectedScenario.image).subscribe({
+    this.fileToByte(this.selectedOldMap.image).subscribe({
         next: (output) => {
           // @ts-ignore
-          this.selectedScenario.image = Array.from(new Uint8Array(output));
+          this.selectedOldMap.image = Array.from(new Uint8Array(output));
         },
         complete: () => {
           this.subscribeToObservable();
@@ -111,28 +105,28 @@ export class ScenarioDialogComponent implements OnChanges{
   }
 
   subscribeToObservable() {
-    let responseScenario$: Observable<Scenario>;
-    if (this.selectedScenario.id) {
-      responseScenario$ = this.scenarioService.updateScenario(
-        this.selectedScenario as unknown as Scenario
+    let responseOldMap$: Observable<OldMap>;
+    if (this.selectedOldMap.id) {
+      responseOldMap$ = this.oldMapService.updateOldMap(
+        this.selectedOldMap as unknown as OldMap
       );
     } else {
-      responseScenario$ = this.scenarioService.createScenario(
-        this.selectedScenario as unknown as Scenario
+      responseOldMap$ = this.oldMapService.createOldMap(
+        this.selectedOldMap as unknown as OldMap
       );
     }
-    responseScenario$.subscribe({
+    responseOldMap$.subscribe({
       complete: () => {
-        this.scenarioService.getScenarios().subscribe({
+        this.oldMapService.getOldMaps().subscribe({
           next:
-            (data: Scenario[]) => {
-              this.scenarios = data;
+            (data: OldMap[]) => {
+              this.oldMaps = data;
             },
           complete: () =>
-            this.scenariosList.emit(this.scenarios)
+            this.oldMapsList.emit(this.oldMaps)
         });
         // @ts-ignore
-        this.selectedScenario = null;
+        this.selectedOldMap = null;
         this.displayDialog = false;
         this.closeDialog();
       }
@@ -169,5 +163,4 @@ export class ScenarioDialogComponent implements OnChanges{
     reader.readAsArrayBuffer(file);
     return sub.asObservable();
   }
-
 }

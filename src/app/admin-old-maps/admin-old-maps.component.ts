@@ -1,7 +1,7 @@
 import {Component, OnChanges, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
-import {OldMapService} from '../../services/old-map.service';
-import {OldMap} from '../../services/OldMap';
+import {OldMapService} from '../services/old-map.service';
+import {OldMap} from '../services/OldMap';
 import {Table} from 'primeng/table';
 
 @Component({
