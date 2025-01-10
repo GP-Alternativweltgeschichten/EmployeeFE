@@ -23,8 +23,8 @@ export class ScenarioDialogComponent implements OnChanges{
     name: null,
     image: null,
     description: null,
-    editable: null,
-    visible: null,
+    editable: false,
+    visible: false,
     createdAt:  null,
     updatedAt: null,
   };
@@ -50,8 +50,8 @@ export class ScenarioDialogComponent implements OnChanges{
         name: null,
         image: null,
         description: null,
-        editable: null,
-        visible: null,
+        editable: false,
+        visible: false,
         createdAt:  null,
         updatedAt: null,
       }
@@ -64,8 +64,8 @@ export class ScenarioDialogComponent implements OnChanges{
       name: null,
       image: null,
       description: null,
-      editable: null,
-      visible: null,
+      editable: false,
+      visible: false,
       createdAt:  null,
       updatedAt: null,
     }
@@ -97,6 +97,22 @@ export class ScenarioDialogComponent implements OnChanges{
     }
     if (this.selectedScenario.image === null) {
       this.subscribeToObservable();
+    }
+    if (this.selectedScenario.id) {
+      this.scenarioService.getScenarioMap(this.selectedScenario.id).subscribe({
+        next: (output) => {
+          this.blobToByte(output).subscribe({
+            next: (output) => {
+              // @ts-ignore
+              this.selectedScenario.image = Array.from(new Uint8Array(output));
+            },
+            complete: () => {
+              this.subscribeToObservable();
+            }
+          })
+        }
+      })
+      return;
     }
     this.fileToByte(this.selectedScenario.image).subscribe({
         next: (output) => {
@@ -152,7 +168,7 @@ export class ScenarioDialogComponent implements OnChanges{
     }
     this.loadingFile = !this.loadingFile;
     // @ts-ignore
-    this.selectedMap.image = event.files[0];
+    this.selectedScenario.image = event.files[0];
     this.fileUpload?.clear();
   }
 
@@ -169,5 +185,20 @@ export class ScenarioDialogComponent implements OnChanges{
     reader.readAsArrayBuffer(file);
     return sub.asObservable();
   }
+
+  blobToByte(blob: Blob): Observable<ArrayBuffer> {
+    const sub = new Subject<ArrayBuffer>();
+    const reader = new FileReader()
+
+    reader.onload = () => {
+      const content: ArrayBuffer = reader.result as ArrayBuffer;
+      sub.next(content);
+      sub.complete();
+    };
+
+    reader.readAsArrayBuffer(blob)
+    return sub.asObservable()
+  }
+
 
 }

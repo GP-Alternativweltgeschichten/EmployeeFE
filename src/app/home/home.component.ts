@@ -11,6 +11,6 @@ export class HomeComponent {
   }
 
   navigateToPrototype() {
-    this.router.navigate(['/admin-scenarios']);
+    this.router.navigate(['/scenarios']);
   }
 }

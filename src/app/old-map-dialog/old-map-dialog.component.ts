@@ -92,6 +92,22 @@ export class OldMapDialogComponent implements OnChanges{
     if (this.selectedOldMap.image === null) {
       this.subscribeToObservable();
     }
+    if (this.selectedOldMap.id) {
+      this.oldMapService.getOldMapMap(this.selectedOldMap.id).subscribe({
+        next: (output) => {
+          this.blobToByte(output).subscribe({
+            next: (output) => {
+              // @ts-ignore
+              this.selectedOldMap.image = Array.from(new Uint8Array(output));
+            },
+            complete: () => {
+              this.subscribeToObservable();
+            }
+          })
+        }
+      })
+      return;
+    }
     this.fileToByte(this.selectedOldMap.image).subscribe({
         next: (output) => {
           // @ts-ignore
@@ -146,7 +162,7 @@ export class OldMapDialogComponent implements OnChanges{
     }
     this.loadingFile = !this.loadingFile;
     // @ts-ignore
-    this.selectedMap.image = event.files[0];
+    this.selectedOldMap.image = event.files[0];
     this.fileUpload?.clear();
   }
 
@@ -163,4 +179,19 @@ export class OldMapDialogComponent implements OnChanges{
     reader.readAsArrayBuffer(file);
     return sub.asObservable();
   }
+  blobToByte(blob: Blob): Observable<ArrayBuffer> {
+    const sub = new Subject<ArrayBuffer>();
+    const reader = new FileReader()
+
+    reader.onload = () => {
+      const content: ArrayBuffer = reader.result as ArrayBuffer;
+      sub.next(content);
+      sub.complete();
+    };
+
+    reader.readAsArrayBuffer(blob)
+    return sub.asObservable()
+  }
+
+
 }

@@ -1,19 +1,19 @@
 <div>
-  <app-nav-bar-admin></app-nav-bar-admin>
+  <app-nav-bar></app-nav-bar>
 </div>
 
 <p-table
   responsiveLayout="stack"
-  #scenariosTable
-  *ngIf="!loadingScenario else elseBlock"
-  [value]="this.scenariosList"
+  #oldMapsTable
+  *ngIf="!loadingOldMap else elseBlock"
+  [value]="this.oldMapsList"
   [paginator]="true"
   [rows]="tableRows"
-  [columns]="[{ field: 'name', header: 'Name' }, { field: 'description', header: 'Description' }, { field: 'created_at', header: 'Created At' }]"
+  [columns]="[{ field: 'name', header: 'Name' }, { field: 'dateOfMap', header: 'Date of Map' }]"
   [pageLinks]="5"
   [rowsPerPageOptions]="tablePaginationSteps"
   [sortField]="'name'"
-  [sortOrder]="-1"
+  [sortOrder]="1"
   [showCurrentPageReport]="true"
   currentPageReportTemplate="{{translate.instant('Table_Zeige')}}
                               {first}
@@ -29,30 +29,24 @@
       <button
         type="button"
         pButton
-        icon="pi pi-eraser"
-        [pTooltip]="translate.instant('Table_Reset')"
-        tooltipPosition="top"
-        showDelay="200"
-        hideDelay="200"
-        (click)="clearTable(scenariosTable)"
-        style="float: right; margin-right: 5px"
-      ></button>
-      <button
-        type="button"
-        pButton
         icon="pi pi-plus"
-        [pTooltip]="translate.instant('ScenarioAdd')"
+        [pTooltip]="translate.instant('OldMapAdd')"
         tooltipPosition="top"
         showDelay="200"
         hideDelay="200"
         style="float:right; margin-right: 5px"
-        (click)="addScenarioDialog()"
+        (click)="addOldMapDialog()"
       ></button>
     </div>
   </ng-template>
   <ng-template pTemplate="header">
     <tr>
-      <th id="actionButtonsHeader" class="buttonCol row-no-border-bot"></th>
+      <th id="visibleHeader" class="buttonCol row-no-border-bot">
+        {{ "Dialog_Sichtbarkeit" | translate }}
+      </th>
+      <th id="editableHeader" class="buttonCol row-no-border-bot">
+        {{ "Dialog_Bearbeitbarkeit" | translate }}
+      </th>
       <th id="nameHeader" class="medium-text-column-header-nowidth row-no-border-bot"
           [pSortableColumn]="'name'">
         {{ "Dialog_Name" | translate }}
@@ -60,107 +54,97 @@
       </th>
       <th id="descriptionHeader" class="medium-text-column-header-nowidth row-no-border-bot"
           [pSortableColumn]="'description'">
-        {{ "Dialog_Description" | translate }}
+        {{ "Dialog_DateOfMap" | translate }}
         <p-sortIcon [field]="'description'"></p-sortIcon>
       </th>
-      <th id="createdAtHeader" class="medium-text-column-header-nowidth row-no-border-bot"
-          [pSortableColumn]="'created_at'" [style.width]="'100px'">
-        {{ "Table_Am" | translate }}
-        <p-sortIcon [field]="'created_at'"></p-sortIcon>
-      </th>
-      <th id="visibleHeader" class="buttonCol row-no-border-bot"></th>
+      <th id="actionsHeader" class="buttonCol row-no-border-bot"></th>
     </tr>
     <tr>
-      <th id="actionsButtonHeader" class="buttonCol row-no-border-bot"></th>
-      <th id="nameFilter" class="medium-text-column-header-nowidth row-no-border-bot">
+      <th id="visibleFilterHeader" class="buttonCol row-no-border-bot"></th>
+      <th id="editableFilterHeader" class="buttonCol row-no-border-bot"></th>      <th id="nameFilter" class="medium-text-column-header-nowidth row-no-border-bot">
         <p-columnFilter
           type="text"
           field="name"
           [placeholder]="translate.instant('Beinhaltet')"
         ></p-columnFilter>
       </th>
-      <th id="descriptionFilter" class="medium-text-column-header-nowidth row-no-border-bot">
+      <th id="ndateOfMapFilter" class="medium-text-column-header-nowidth row-no-border-bot">
         <p-columnFilter
           type="text"
-          field="description"
+          field="dateOfMap"
           [placeholder]="translate.instant('Beinhaltet')"
         ></p-columnFilter>
       </th>
-      <th id="createdAtFilter" class="medium-text-column-header-nowidth row-no-border-bot">
-        <p-columnFilter
-          type="text"
-          field="created_at"
-          [placeholder]="translate.instant('Beinhaltet')"
-        ></p-columnFilter>
-      </th>
-      <th id="visiblesHeader" class="buttonCol row-no-border-bot"></th>
+      <th id="actionFilterHeader" class="buttonCol row-no-border-bot"></th>
     </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-scenario>
+  <ng-template pTemplate="body" let-oldMap>
     <tr
-      [pSelectableRowDblClick]="scenario"
-      [pSelectableRow]="scenario"
-      (dblclick)="editScenarioDialog(scenario)"
+      [pSelectableRowDblClick]="oldMap"
+      [pSelectableRow]="oldMap"
+      (dblclick)="editOldMapDialog(oldMap)"
     >
+      <td class="buttonCol">
+        <i class="pi" [ngClass]="{ 'text-green-500 pi-check-circle': oldMap.visible, 'text-red-500 pi-times-circle': !oldMap.visible }"></i>
+      </td>
+      <td class="buttonCol">
+        <i class="pi" [ngClass]="{ 'text-green-500 pi-check-circle': oldMap.editable, 'text-red-500 pi-times-circle': !oldMap.editable }"></i>
+      </td>
+      <td class="medium-text-column-body-nowidth">
+        <span>{{
+            oldMap.name
+          }}</span>
+      </td>
+      <td class="medium-text-column-body-nowidth">
+        <span>{{
+            oldMap.dateOfMap
+          }}</span>
+      </td>
       <td class="buttonCol">
         <span class="button-span">
           <button
             type="button"
             pButton
             class="button-columns-button-icon"
-            icon="pi pi-trash"
-            style="font-size: 0.65em"
-            [pTooltip]="translate.instant('ScenarioDelete')"
+            icon="pi pi-eye"
+            style="font-size: 0.65em; margin-right: 5px"
+            [pTooltip]="translate.instant('ZeigeKarte')"
             tooltipPosition="top"
             showDelay="200"
             hideDelay="200"
-            (click)="deleteScenarioById(scenario)"
+            (click)="showOldMapMap(oldMap); panel.toggle($event)"
+            [disabled]="oldMap.map === null"
           ></button>
           <button
             type="button"
             pButton
             class="button-columns-button-icon"
             icon="pi pi-pencil"
-            style="font-size: 0.65em"
-            [pTooltip]="translate.instant('ScenarioEdit')"
+            style="font-size: 0.65em; margin-right: 5px"
+            [pTooltip]="translate.instant('OldMapEdit')"
             tooltipPosition="top"
             showDelay="200"
             hideDelay="200"
-            (click)="editScenarioDialog(scenario)"
+            (click)="editOldMapDialog(oldMap)"
           ></button>
           <button
             type="button"
             pButton
             class="button-columns-button-icon"
-            icon="pi pi-eye"
+            icon="pi pi-trash"
             style="font-size: 0.65em"
-            [pTooltip]="translate.instant('ZeigeKarte')"
+            [pTooltip]="translate.instant('OldMapDelete')"
             tooltipPosition="top"
             showDelay="200"
             hideDelay="200"
-            (click)="showScenarioMap(scenario)"
+            (click)="deleteOldMapById(oldMap.id)"
           ></button>
         </span>
-      </td>
-      <td class="medium-text-column-body-nowidth">
-        <span>{{
-            scenario.name
-          }}</span>
-      </td>
-      <td class="medium-text-column-body-nowidth">
-        <span>{{
-            scenario.description
-          }}</span>
-      </td>
-      <td class="date-column">
-        <span>{{ scenario.createdAt }}</span>
-      </td>
-      <td class="buttonCol">
-        <p-checkbox
-          [binary]="true"
-          value="scenario.visible"
-          disabled="true"
-        ></p-checkbox>
+        <p-overlayPanel #panel>
+          <div *ngIf="!loadingMap else elseBlock">
+            <img [src]="map" alt="Map">
+          </div>
+        </p-overlayPanel>
       </td>
     </tr>
   </ng-template>
@@ -184,8 +168,8 @@
   </div>
 </ng-template>
 
-<app-scenario-dialog
+<app-old-map-dialog
   [(displayDialog)]="displayDialog"
-  [editScenario]="editScenario"
-  (scenariosList)="updateScenariosList($event)"
-></app-scenario-dialog>
+  [editOldMap]="editOldMap"
+  (oldMapsList)="updateOldMapsList($event)"
+></app-old-map-dialog>

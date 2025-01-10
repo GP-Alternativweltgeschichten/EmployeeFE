@@ -5,13 +5,13 @@ import {TranslateService} from '@ngx-translate/core';
 import {Table} from 'primeng/table';
 
 @Component({
-  selector: 'app-admin-scenarios',
-  templateUrl: './admin-scenarios.component.html',
-  styleUrl: './admin-scenarios.component.css'
+  selector: 'app-scenarios',
+  templateUrl: './scenarios.component.html',
+  styleUrl: './scenarios.component.css'
 })
-export class AdminScenariosComponent implements OnInit, OnChanges{
+export class ScenariosComponent implements OnInit, OnChanges {
   tablePaginationSteps = [5, 10, 15, 20, 25, 30];
-  tableRows = 20;
+  tableRows = 10;
 
   displayDialog: boolean | undefined;
   editScenario: Scenario | null | undefined;
@@ -23,10 +23,8 @@ export class AdminScenariosComponent implements OnInit, OnChanges{
   inputDescription: string = '';
   inputCreatedAt: string = '';
 
-  tmpBoolean = false;
-  changeBoolean() {
-    this.tmpBoolean = !this.tmpBoolean;
-  }
+  map: any;
+  loadingMap = true;
 
   constructor(public scenarioService: ScenarioService,
               public translate: TranslateService) {
@@ -63,19 +61,21 @@ export class AdminScenariosComponent implements OnInit, OnChanges{
 
   deleteScenarioById(scenarioId: number) {
     let tmpScenario = this.scenariosList?.find(scenario => scenario.id === scenarioId)
-    this.scenarioService.deleteScenario(tmpScenario as unknown as number).subscribe(
-      () => {
-        this.scenarioService.getScenarios().subscribe({
-          next: (data: Scenario[]) => {
-            this.scenariosList = data;
-          },
-          complete: () => {
+    if (tmpScenario) {
+      this.scenarioService.deleteScenario(tmpScenario.id).subscribe(
+        () => {
+          this.scenarioService.getScenarios().subscribe({
+            next: (data: Scenario[]) => {
+              this.scenariosList = data;
+            },
+            complete: () => {
 
-            this.loadingScenario = false;
-          }
-        })
-      }
-    );
+              this.loadingScenario = false;
+            }
+          })
+        }
+      );
+    }
   }
 
   clearTable(table: Table) {
@@ -86,6 +86,24 @@ export class AdminScenariosComponent implements OnInit, OnChanges{
   }
 
   showScenarioMap(scenario: Scenario) {
-    console.log('Show Scenario Map' + scenario);
+    this.scenarioService.getScenarioMap(scenario.id).subscribe({
+      next: (data: Blob) => {
+        this.createImageFromBlob(data);
+      },
+      complete: () => {
+        this.loadingMap = false;
+      }
+    })
+  }
+
+  createImageFromBlob(image: Blob) {
+    let reader = new FileReader();
+    reader.addEventListener("load", () => {
+      this.map = reader.result;
+    }, false);
+
+    if (image) {
+      reader.readAsDataURL(image);
+    }
   }
 }

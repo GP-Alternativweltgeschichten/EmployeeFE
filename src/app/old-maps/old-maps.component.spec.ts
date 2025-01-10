@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminOldMapsComponent } from './admin-old-maps.component';
+import { OldMapsComponent } from './old-maps.component';
 
 describe('AdminOldMapsComponent', () => {
-  let component: AdminOldMapsComponent;
-  let fixture: ComponentFixture<AdminOldMapsComponent>;
+  let component: OldMapsComponent;
+  let fixture: ComponentFixture<OldMapsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AdminOldMapsComponent]
+      declarations: [OldMapsComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AdminOldMapsComponent);
+    fixture = TestBed.createComponent(OldMapsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

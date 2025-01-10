@@ -36,7 +36,7 @@ export class CommunicationService {
     }
     return this.http
       .get<returnType>(path, this.options)
-      .pipe(catchError(err => observableThrowError(this.errorHandler(err))));
+      .pipe(catchError(err => observableThrowError(err)));
   }
 
   public post<returnType>(path: string, body: any, customHeaders?: HttpHeaders, type?: string): Observable<returnType> {
@@ -51,7 +51,7 @@ export class CommunicationService {
     }
     return this.http
       .post<returnType>(path, body, this.options)
-      .pipe(catchError(err => observableThrowError(this.errorHandler(err))));
+      .pipe(catchError(err => observableThrowError(err)));
   }
 
   public put<returnType>(path: string, body: any, customHeaders?: HttpHeaders): Observable<returnType> {
@@ -62,7 +62,6 @@ export class CommunicationService {
 
     return this.http.put<returnType>(path, body, this.options).pipe(
       catchError(err => {
-        this.errorHandler(err);
         return observableThrowError(err);
       })
     );
@@ -78,7 +77,6 @@ export class CommunicationService {
 
     return this.http.post<any>(path, file, requestOptions).pipe(
       catchError(err => {
-        this.errorHandler(err);
         return observableThrowError(err);
       })
     );
@@ -91,7 +89,6 @@ export class CommunicationService {
     path = this.createPath(path);
     return this.http.delete<returnType>(path, this.options).pipe(
       catchError(err => {
-        this.errorHandler(err);
         return observableThrowError(err);
       })
     );
@@ -110,10 +107,6 @@ export class CommunicationService {
 
   private createPath(path: string): string {
     return this.basePath + path;
-  }
-
-  private errorHandler(err: { error: any; }): void {
-    console.error("Error in CommunicationService", err.error);
   }
 
 }

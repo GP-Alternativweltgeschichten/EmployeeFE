@@ -48,6 +48,7 @@
       </div>
       <div class="col-10">
         <p-toggleButton
+          name="editable"
           [(ngModel)]="selectedOldMap.editable"
           onLabel="{{ 'Dialog_Bearbeitbar' | translate }}"
           offLabel="{{ 'Dialog_NichtBearbeitbar' | translate }}"
@@ -60,6 +61,7 @@
       </div>
       <div class="col-10">
         <p-toggleButton
+          name="visible"
           [(ngModel)]="selectedOldMap.visible"
           onLabel="{{ 'Dialog_Visible' | translate }}"
           offLabel="{{ 'Dialog_Invisible' | translate }}"
