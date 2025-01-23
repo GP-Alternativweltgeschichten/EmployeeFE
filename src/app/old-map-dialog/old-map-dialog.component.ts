@@ -77,7 +77,9 @@ export class OldMapDialogComponent implements OnChanges{
     this.emptyInput = false;
     if (this.selectedOldMap) {
       // @ts-ignore
-      this.selectedOldMap.name = this.selectedOldMap.dateOfMap.trim();
+      this.selectedOldMap.name = this.selectedOldMap.name.trim();
+      // @ts-ignore
+      this.selectedOldMap.dateOfMap = this.selectedOldMap.dateOfMap.trim();
       if (this.selectedOldMap.dateOfMap === "") {
         this.emptyInput = true;
       }
