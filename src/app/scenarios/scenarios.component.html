@@ -141,9 +141,12 @@
             (click)="deleteScenarioById(scenario.id)"
           ></button>
         </span>
-        <p-overlayPanel #panel>
+        <p-overlayPanel
+          #panel
+          appendTo="body"
+        >
           <div *ngIf="!loadingMap else elseBlock">
-            <img [src]="map" alt="Map">
+            <img [src]="map" alt="Map" style="max-width: 350px; max-height: 350px">
           </div>
         </p-overlayPanel>
       </td>
