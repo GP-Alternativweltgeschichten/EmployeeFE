@@ -1,53 +1,57 @@
 # Angular Application
 
-## 📌 Project Description
-This is an Angular application designed to give the musuem employees the possibility to manage the thematic worlds shown in the visitor webpage. It provides features such as adding, editig and deleting scenarios and old maps.
+## 📌 Projektbeschreibung
+Dies ist eine Angular-Anwendung, die den Mitarbeitern des Museums die Möglichkeit bietet, die thematischen Welten auf der Besucher-Webseite zu verwalten. Sie bietet Funktionen wie das Hinzufügen, Bearbeiten und Löschen von Szenarien und alten Karten.
 
-## 📖 Table of Contents
+## 📖 Inhalt
 - [Installation](#installation)
-- [Running the Application](#running-the-application)
-- [Project Structure](#project-structure)
+- [Anwendung ausführen](#anwendung-ausfüehren)
+- [Projektstruktur](#projektstruktur)
 
 ## ⚙️ Installation
-1. Ensure that Node.js is installed
-2. Clone the repository:
+1. Stellen Sie sicher, dass Node.js installiert ist
+   Besuchen Sie Node.js Download-Seite und laden Sie die aktuelle LTS-Version herunter.
+2. Repository klonen
+   Klonen Sie das Repository in Ihr Projektverzeichnis:
    ```sh
    git clone https://github.com/GP-Alternativweltgeschichten/EmployeeFE.git
-   cd EmployeeFE
+   cd VisitorFE
    ```
-3. Install dependencies:
+3. Abhängigkeiten installieren
+   Stellen Sie sicher, dass alle erforderlichen Pakete installiert werden:
    ```sh
    npm install
    ```
-4. Make sure you have Angular CLI installed:
+4. Angular CLI installieren
+   Vergewissern Sie sich, dass Angular CLI auf Ihrem System installiert ist:
    ```sh
    npm install -g @angular/cli
    ```
 
-## 🚀 Running the Application
-Start the development server:
+## 🚀 Anwendung ausführen
+Starten Sie den Entwicklungsserver:
 ```sh
 ng serve
 ```
-By default, the application runs on `http://localhost:4201/`.
+Die Anwendung wird standardmäßig unter http://localhost:4201/ ausgeführt.
 
-## 📂 Project Structure
+## 📂 Projektstruktur
 ```
 src/
-  app/                  # Main Angular application files
-    error/              # Catches errors in the URL
-    home/               # Starting page
-    nav-bar/            # Menu to navigate through the application
-    old-map-dialog/     # Dialog to add and edit old maps
-    old-maps/           # Overview of old maps
-    scenario-dialog/    # Dialog to add and edit scenarios
-    scenarios/          # Overview of scenarios
-    services/           # Services for the application
-    top-bar/            # Top-Bar with general information
-  assets/               # Static assets (images, fonts, etc.)
-angular.json            # Angular project configuration
-package.json            # Dependencies and scripts
-README.md               # Documentation
+  app/                  # Hauptverzeichnis der Angular-Anwendungsdateien. Enthält verschiedene Module für verschiedene Funktionen
+    error/              # Bearbeitet Fehler, die durch ungültige URLs oder fehlerhafte Anfragen entstehen.
+    home/               # Startseite der Anwendung.
+    nav-bar/            # Navigationsleiste, um zwischen den Seiten der Anwendung zu wechseln.
+    old-map-dialog/     # Dialogkomponente zum Hinzufügen und Bearbeiten von alten Karten.
+    old-maps/           # Übersichtsseite, die alte Karten anzeigt.
+    scenario-dialog/    # Dialogkomponente zum Hinzufügen und Bearbeiten von Szenarien.
+    scenarios/          # Übersichtsseite, die Szenarien anzeigt.
+    services/           # Beinhaltet die Dienste, die in der Anwendung verwendet werden (z. B. API-Aufrufe oder Authentifizierung).
+    top-bar/            # Der obere Bereich der Anwendung, der allgemeine Informationen bietet (z. B. Anwendungsname, Benutzermenu).
+  assets/               # Enthält statische Assets wie Bilder, Schriftarten und andere Ressourcen.
+angular.json            # Die Konfigurationsdatei für das Angular-Projekt.
+package.json            # Listet die Abhängigkeiten und Skripte, die im Projekt verwendet werden.
+README.md               # Dokumentation und Hinweise für das Projekt.
 ```
 
 ## ...
