@@ -23,7 +23,8 @@ export class NavBarComponent implements OnInit{
   private setNavItems(): void {
     this.navItems = [
       { label: this.translate.instant('Szenarien'), icon: 'pi pi-building-columns', routerLink: ['/scenarios'] },
-      { label: this.translate.instant('Alte Karten'), icon: 'pi pi-map', routerLink: ['/old-maps'] }
+      { label: this.translate.instant('Alte Karten'), icon: 'pi pi-map', routerLink: ['/old-maps'] },
+      { label: this.translate.instant('KI'), icon: 'pi pi-chart-bar', routerLink: ['/ai-model'] }
     ];
   }
 }

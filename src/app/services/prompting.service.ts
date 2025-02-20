@@ -13,4 +13,12 @@ export class PromptingService {
     return this.comService.post<String>('/prompting/text', text);
   }
 
+  getAIModel(): Observable<number> {
+    return this.comService.get<number>('/prompting/aiModel');
+  }
+
+  saveAIModel(model: number): Observable<Number> {
+    return this.comService.post<Number>('/prompting/aiModel', model);
+  }
+
 }
