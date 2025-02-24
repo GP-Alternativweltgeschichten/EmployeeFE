@@ -1,0 +1,19 @@
+<div>
+  <app-nav-bar></app-nav-bar>
+</div>
+
+<h3>Auswahl möglicher KI-Modelle</h3>
+
+<div class="ai-model-selector">
+  <label class="ai-model-label">{{ 'AI Model' | translate }}</label>
+  <div class="ai-options" *ngFor="let option of modelOptions">
+    <p-radioButton
+      [name]="'aiModel'"
+      [value]="option.value"
+      [(ngModel)]="selectedModel"
+      (onClick)="saveAIModel($event)"
+    ></p-radioButton>
+    <label class="ai-option-label">{{ option.label }}</label>
+  </div>
+</div>
+

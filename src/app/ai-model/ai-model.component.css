@@ -1,0 +1,24 @@
+.ai-model-selector {
+  gap: 5px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.ai-model-label {
+  font-weight: bold;
+  font-size: 0.95em;
+  margin-bottom: 2px;
+  align-self: center; /* Centers the label */
+  text-align: center;
+}
+
+.ai-options {
+  display: flex;
+  align-items: center; /* Align radio buttons and labels */
+  gap: 6px; /* Space between button and label */
+}
+
+.ai-option-label {
+  font-size: 0.8em;
+  vertical-align: middle;
+}

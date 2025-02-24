@@ -4,12 +4,14 @@ import {ScenariosComponent} from './scenarios/scenarios.component';
 import {OldMapsComponent} from './old-maps/old-maps.component';
 import {ErrorComponent} from './error/error.component';
 import {HomeComponent} from './home/home.component';
+import {AiModelComponent} from './ai-model/ai-model.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'scenarios', component: ScenariosComponent},
   {path: 'old-maps', component: OldMapsComponent},
+  {path: 'ai-model', component: AiModelComponent},
   {path: 'error', component: ErrorComponent},
   {path: '**', redirectTo: '/error'}
 ];

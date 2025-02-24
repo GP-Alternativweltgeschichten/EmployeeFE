@@ -31,6 +31,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CheckboxModule} from 'primeng/checkbox';
 import {InputTextModule} from "primeng/inputtext";
 import {OverlayPanelModule} from 'primeng/overlaypanel';
+import { AiModelComponent } from './ai-model/ai-model.component';
+import {RadioButtonModule} from 'primeng/radiobutton';
 
 // Factory function for ngx-translate
 export function HttpLoaderFactory(http: HttpClient) {
@@ -48,7 +50,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     OldMapsComponent,
     OldMapDialogComponent,
     ScenarioDialogComponent,
-    ErrorComponent
+    ErrorComponent,
+    AiModelComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +79,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CalendarModule,
     CheckboxModule,
     InputTextModule,
-    OverlayPanelModule
+    OverlayPanelModule,
+    RadioButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
