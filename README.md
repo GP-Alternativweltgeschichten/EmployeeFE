@@ -4,9 +4,9 @@
 Dies ist eine Angular-Anwendung, die den Mitarbeitern des Museums die Möglichkeit bietet, die thematischen Welten auf der Besucher-Webseite zu verwalten. Sie bietet Funktionen wie das Hinzufügen, Bearbeiten und Löschen von Szenarien und alten Karten.
 
 ## 📖 Inhalt
-- [Installation](#installation)
-- [Anwendung ausführen](#anwendung-ausfüehren)
-- [Projektstruktur](#projektstruktur)
+- [Installation](#%EF%B8%8F-installation)
+- [Anwendung ausführen](#-anwendung-ausführen)
+- [Projektstruktur](#-projektstruktur)
 
 ## ⚙️ Installation
 1. Stellen Sie sicher, dass Node.js installiert ist
