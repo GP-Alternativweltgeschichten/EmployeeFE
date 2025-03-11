@@ -1,15 +1,17 @@
 .ai-model-selector {
+  display: flex;
+  flex-direction: column;
   gap: 5px;
-  margin-top: 20px;
-  margin-left: 20px;
+  /*margin-top: 20px;*/
+  margin-left: 10px;
+  align-items: flex-start; /* Align to left */
 }
 
 .ai-model-label {
   font-weight: bold;
   font-size: 0.95em;
   margin-bottom: 2px;
-  align-self: center; /* Centers the label */
-  text-align: center;
+  /*align-self: center;*/
 }
 
 .ai-options {
