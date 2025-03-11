@@ -7,6 +7,9 @@ Dies ist eine Angular-Anwendung, die den Mitarbeitern des Museums die Möglichke
 - [Installation](#%EF%B8%8F-installation)
 - [Anwendung ausführen](#-anwendung-ausführen)
 - [Projektstruktur](#-projektstruktur)
+- [Aufbau](#-aufbau)
+- [Feature-Übersicht](#-feature-übersicht)
+- [Zukünftige Erweiterungen](#-zukünftige-erweiterungen)
 
 ## ⚙️ Installation
 1. Stellen Sie sicher, dass Node.js installiert ist
@@ -54,7 +57,14 @@ package.json            # Listet die Abhängigkeiten und Skripte, die im Projekt
 README.md               # Dokumentation und Hinweise für das Projekt.
 ```
 
-## ...
+## 🧩 Aufbau
+![grafik](https://github.com/user-attachments/assets/74bcccbe-f1f0-4cec-ab78-d15575ec25a0)
+![grafik](https://github.com/user-attachments/assets/992214bf-3915-4cd6-892b-c6e0d8d62ae3)
+![grafik](https://github.com/user-attachments/assets/945d7cc5-4f1e-434c-9549-a355cfd602c9)
+
+## 📋 Feature-Übersicht
+
+## 📈 Zukünftige Erweiterungen
 
 ---
 
