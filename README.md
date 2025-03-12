@@ -67,7 +67,7 @@ Insgesamt ist die Hauptseite des Mitarbeiter-Frontends so konzipiert, dass sie d
 
 ![grafik](https://github.com/user-attachments/assets/74bcccbe-f1f0-4cec-ab78-d15575ec25a0)
 In der Szenarien-Übersicht können alle in der Datenbank gespeicherten Szenarien eingesehen, gefiltert, bearbeitet oder gelöscht werden. Über das "+"-Symbol lassen sich neue Szenarien hinzufügen.
-![grafik](https://github.com/user-attachments/assets/992214bf-3915-4cd6-892b-c6e0d8d62ae3)
+![grafik](https://github.com/user-attachments/assets/156b9cfe-bd7d-4096-bc6c-06d88f46470b)
 Im Dialog zum Hinzufügen neuer Szenarien können Name, Beschreibung, Sichtbarkeit, Bearbeitbarkeit und ein Bild für das Szenario definiert werden.
 ![grafik](https://github.com/user-attachments/assets/945d7cc5-4f1e-434c-9549-a355cfd602c9)
 Im Bereich "Künstliche Intelligenz" kann das aktuell verwendete KI-Modell (eigenes KI-Modell oder Dall-E von OpenAI) für die Besucher-Anwendung ausgewählt werden.
@@ -83,7 +83,11 @@ Im Bereich "Künstliche Intelligenz" kann das aktuell verwendete KI-Modell (eige
 | **Mehrsprachigkeit (Teilweise)**      | Möglichkeit, die UI zwischen Deutsch und Englisch umzustellen (Datenbankeinträge werden noch nicht übersetzt). |
 
 ## 📈 Zukünftige Erweiterungen
-
+- **Vollständige Mehrsprachigkeit**: Erweiterung der Anwendung um eine vollständige Mehrsprachigkeit, einschließlich der dynamischen Inhalte wie Datenbankeinträge (z.B. Name und Beschreibung von Szenarien und alten Karten), mithilfe von externen Übersetzungs-APIs.
+- **Bildvorschau bei Erstellung und Bearbeitung**: Möglichkeit, das beim Erstellen oder Bearbeiten eines Szenarios oder einer alten Karte hochgeladene Bild direkt als Vorschaubild anzuzeigen, um die Auswahl zu überprüfen.
+- **Drag & Drop für Bilder**: Upload-Funktion durch Drag & Drop von Bilddateien direkt in den Dialog zur Erstellung oder Bearbeitung von Themenwelten.
+- **Zugriffsbeschränkung und Rollenverwaltung**: Einführung eines Rollensystems, um den Zugriff auf bestimmte Funktionen zu steuern (z.B. Administratoren vs. Redakteure). Damit kann die Bearbeitung oder Sichtbarkeit von Inhalten abhängig von Nutzerrollen beschränkt werden.
+- **Versionierung von Themenwelten**: Implementierung einer Versionsverwaltung, die es ermöglicht, ältere Versionen von Szenarien und alten Karten wiederherzustellen oder Änderungen nachzuverfolgen (inkl. Änderungsverlauf).
 
 ---
 
