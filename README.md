@@ -3,6 +3,8 @@
 ## 📌 Beschreibung
 Dies ist eine Angular-Anwendung, die den Mitarbeitern des Museums die Möglichkeit bietet, die thematischen Welten auf der Besucher-Webseite zu verwalten. Sie bietet Funktionen wie das Hinzufügen, Bearbeiten und Löschen von Szenarien und alten Karten. Zudem kann das in der Besucheransicht verfügbare KI-Modell durch die Mitarbeiter angepasst werden.
 
+Begründung für Mitarbeiter-Frontend.... 
+
 ## 📖 Inhalt
 - [Installation](#%EF%B8%8F-installation)
 - [Anwendung ausführen](#-anwendung-ausführen)
@@ -71,8 +73,17 @@ Im Dialog zum Hinzufügen neuer Szenarien können Name, Beschreibung, Sichtbarke
 Im Bereich "Künstliche Intelligenz" kann das aktuell verwendete KI-Modell (eigenes KI-Modell oder Dall-E von OpenAI) für die Besucher-Anwendung ausgewählt werden.
 
 ## 📋 Feature-Übersicht
+| **Feature**        | **Beschreibung** |
+|--------------------|------------------|
+| **Themenwelten-Anzeige**              | Auflistung aller Szenarien und alten Karten (in ihren jeweiligen Tabs) mit Sichtbarkeit, Bearbeitbarkeit, Name, Beschreibung und Vorschaubild. Möglichkeit zur Beschränkung der angezeigten Einträge. |
+| **Themenwelten-Verwaltung**           | Bearbeitung aller gelisteten Attribute der Szenarien und alten Karten in Dialogfenstern (in den jeweiligen Tabs). Löschung der aufgelisteten Szenarien und alten Karten. |
+| **Themenwelten-Erstellung**           | Hinzufügen neuer Szenarien oder alter Karten (in ihren jeweiligen Tabs) in Dialogfenstern mit allen gelisteten Attributen (Sichtbarkeit, Bearbeitbarkeit, Name, Beschreibung und Karte). |
+| **KI-Modell Auswahl**                 | Auswahl zwischen zwei KI-Modellen (OlpeAI oder DALL-E) zur Bildgenerierung in der Besucher-Ansicht. Speicherung der Auswahl im Backend. |
+| **Filter- und Suchfunktion**          | Alphabetische Sortierung nach Name oder Beschreibung der Themenwelten. Suche nach enthaltenen Buchstaben in Name oder Beschreibung der Themenwelten zum schnellen Auffinden bestimmter Einträge.  |
+| **Mehrsprachigkeit (Teilweise)**      | Möglichkeit, die UI zwischen Deutsch und Englisch umzustellen (Datenbankeinträge werden noch nicht übersetzt). |
 
 ## 📈 Zukünftige Erweiterungen
+
 
 ---
 
