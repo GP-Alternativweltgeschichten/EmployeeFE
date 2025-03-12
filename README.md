@@ -1,9 +1,7 @@
 # Mitarbeiter-Frontend
 
 ## 📌 Beschreibung
-Dies ist eine Angular-Anwendung, die den Mitarbeitern des Museums die Möglichkeit bietet, die thematischen Welten auf der Besucher-Webseite zu verwalten. Sie bietet Funktionen wie das Hinzufügen, Bearbeiten und Löschen von Szenarien und alten Karten. Zudem kann das in der Besucheransicht verfügbare KI-Modell durch die Mitarbeiter angepasst werden.
-
-Begründung für Mitarbeiter-Frontend.... 
+Um die Inhalte und Funktionen des Besucher-Frontends flexibel und effizient verwalten zu können, wurde ein eigenständiges Angular-Frontend für Mitarbeiter entwickelt. Dieses ermöglicht es den Mitarbeitern des Stadtmuseums Olpe, die für die Besucher sichtbaren Themenwelten in Form von Szenarien und historischen Karten selbstständig zu erstellen, zu bearbeiten und wenn nötig zu löschen. Dadurch bleibt die Auswahl der Themenwelten nicht statisch, sondern kann kontinuierlich an aktuelle Entwicklungen oder besondere Ausstellungen angepasst werden. Darüber hinaus bietet das Mitarbeiter-Frontend zusätzliche Steuerungsmöglichkeiten zur Auswahl des verwendeten KI-Modells und stellt somit eine interne Schnittstelle dar, um die Besucher-Webseite inhaltlich aktuell zu halten und finanzielle Verluste durch übermäßige Nutzung des kostenpflichtigen KI-Modells Dall-E zu vermeiden. 
 
 ## 📖 Inhalt
 - [Installation](#%EF%B8%8F-installation)
@@ -63,7 +61,7 @@ README.md               # Dokumentation und Hinweise für das Projekt.
 **Startseite**: Analog zum Besucher-Frontend verfügt auch das Mitarbeiter-Frontend über eine Startseite, die als Einstiegspunkt für die Mitarbeitenden des Museums dient. Sie präsentiert das Logo der Stadt Olpe und bietet eine Sprachwahl zwischen Deutsch und Englisch. Ergänzt wird die Seite durch einen kurzen Einführungstext, der den Zweck der Anwendung sowie die wichtigsten Funktionen erläutert. Über einen Button gelangen die Mitarbeitenden zur Hauptseite der Anwendung.
 
 **Hauptseite**: Die Hauptseite bildet die zentrale Interaktionsseite des Mitarbeiter-Frontends. Hier können die Themenwelten von Olpe, die in Szenarien (bearbeitete, alternative Karten von Olpe basierend auf bestimmten Gedankenspielen) und alte Karten (historische, unbearbeitete Karten von Olpe) unterteilt sind, verwaltet werden. Für beide Kategorien existieren separate Tabs, die eine übersichtliche Darstellung aller in der Datenbank hinterlegten Elemente bieten. Neben einer Auflistung der wichtigsten Attribute – darunter Sichtbarkeit, Bearbeitbarkeit, Name, Beschreibung und ein Vorschaubild – ermöglichen diese Tabs folgende Verwaltungsfunktionen: Das Filtern nach Namen und Beschreibungen, das Bearbeiten und Löschen vorhandener Einträge sowie das Hinzufügen neuer Szenarien und Karten. Ein zusätzlicher Tab "Künstliche Intelligenz" erlaubt die Auswahl des KI-Modells, das auf der Besucher-Webseite für die Bildgenerierung eingesetzt wird.
-Insgesamt ist die Hauptseite des Mitarbeiter-Frontends so konzipiert, dass sie den Mitarbeitenden eine strukturierte und vereinfachte Verwaltung der Themenwelten sowie eine einfache Steuerung des eingesetzten KI-Modells zur Vermeidung zusätzlicher Kosten ermöglicht.
+Insgesamt ist die Hauptseite des Mitarbeiter-Frontends so konzipiert, dass sie den Mitarbeitenden eine strukturierte und vereinfachte Verwaltung der Themenwelten sowie eine einfache Steuerung des eingesetzten KI-Modells zur Vermeidung hoher Kosten ermöglicht.
 
 ![grafik](https://github.com/user-attachments/assets/74bcccbe-f1f0-4cec-ab78-d15575ec25a0)
 In der Szenarien-Übersicht können alle in der Datenbank gespeicherten Szenarien eingesehen, gefiltert, bearbeitet oder gelöscht werden. Über das "+"-Symbol lassen sich neue Szenarien hinzufügen.
