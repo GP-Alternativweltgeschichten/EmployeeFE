@@ -4,12 +4,22 @@
 Um die Inhalte und Funktionen des Besucher-Frontends flexibel und effizient verwalten zu können, wurde ein eigenständiges Angular-Frontend für Mitarbeiter entwickelt. Dieses ermöglicht es den Mitarbeitern des Stadtmuseums Olpe, die für die Besucher sichtbaren Themenwelten in Form von Szenarien und historischen Karten selbstständig zu erstellen, zu bearbeiten und wenn nötig zu löschen. Dadurch bleibt die Auswahl der Themenwelten nicht statisch, sondern kann kontinuierlich an aktuelle Entwicklungen oder besondere Ausstellungen angepasst werden. Darüber hinaus bietet das Mitarbeiter-Frontend zusätzliche Steuerungsmöglichkeiten zur Auswahl des verwendeten KI-Modells und stellt somit eine interne Schnittstelle dar, um die Besucher-Webseite inhaltlich aktuell zu halten und finanzielle Verluste durch übermäßige Nutzung des kostenpflichtigen KI-Modells Dall-E zu vermeiden. 
 
 ## 📖 Inhalt
+- [Verwendete Technologien](#%EF%B8%8F-verwendete-technologien)
 - [Installation](#%EF%B8%8F-installation)
 - [Anwendung ausführen](#-anwendung-ausführen)
 - [Projektstruktur](#-projektstruktur)
 - [Aufbau](#-aufbau)
 - [Feature-Übersicht](#-feature-übersicht)
 - [Zukünftige Erweiterungen](#-zukünftige-erweiterungen)
+
+## 🖥️ Verwendete Technologien
+In diesem Projekt werden folgende Technologien und Frameworks genutzt:
+- **Angular** (Version 18) – Frontend-Framework 
+- **PrimeNG** (Version 17) – UI-Komponentenbibliothek 
+- **PrimeFlex** – CSS-Utility-Framework
+- **PrimeIcons** – Icon-Bibliothek
+- **TypeScript** – (Haupt)-Programmiersprache
+- **Ngx-Translate** – Unterstützung für Mehrsprachigkeit
 
 ## ⚙️ Installation
 1. Stellen Sie sicher, dass Node.js installiert ist. 
